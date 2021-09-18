@@ -1,0 +1,204 @@
+{% extends 'inicio.html' %}
+    {% block titulo %}  Flora   {% endblock titulo %}
+    {% block cuerpo %}
+    {% load static %}
+        <header>
+            <!-- Header Start -->
+        <div class="header-area header-sticky">
+                <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                    
+                    <div class="logo">
+                        <a href="{% url 'inicio' %}"><img class="tamano" src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                    </div>
+
+                    <!-- Main-menu -->
+                    <div style = "width: 60%;" class="main-menu d-none d-lg-block">
+                        <nav>
+                            <ul id="navigation"> 
+                                <li><a href="{% url 'inicio' %}">Bio-Oro</a></li>
+                                <li><a href="#">Orquideas</a></li>
+                                <li><a href="#">Bromelias</a></li>
+                            </ul>
+                        </nav>
+                    </div>          
+                    <!-- Mobile Menu -->
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+        </div>
+            <!-- Header End -->
+        </header>
+            
+			<section> 
+				<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    			<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+				<!--
+				<link rel="stylesheet" href="../static/css/animate.css"> 
+				<link rel="stylesheet" href="../static/css/especies.css"> 
+
+				
+				-->
+
+				<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+				<link rel="stylesheet" href="{% static 'css/especies.css' %}"> 
+			
+ 
+  <main>
+
+	<div id="colorlib-page">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+		<aside id="colorlib-aside" role="complementary" class="js-fullheight text-center">
+			<h1 id="colorlib-logo"> </a></h1>
+			<nav id="colorlib-main-menu" role="navigation">
+				<ul>
+					<li class="colorlib-active" style="font-size: 25px;"><a href=""style="font-size: 25px;">Introducción</a></li>
+					<li><a href="#fichatecnica"style="font-size: 25px;" >Ficha Técnica</a></li>
+					<li><a href="#ubicacion"style="font-size: 25px;">Ubicación</a></li>
+					<li><a href="#biomas"style="font-size: 25px;">Biomas</a></li>
+					<li><a href="#galeria"style="font-size: 25px;">Galería</a></li> 
+				</ul>
+			</nav>
+
+			<div class="colorlib-footer"> 
+			</div>
+
+		</aside> <!-- END COLORLIB-ASIDE -->
+
+		<div id="colorlib-main">
+
+			{% for e in fauna_solo %}
+				{% if e.id == id_fauna %}
+					<img src="{% static 'assets/img/gallery/fondoplantas.jpeg' %}" autoplay loop style="position: fixed;"></img> 						
+					<div class="overlay"></div>
+						<div class="js-fullheight d-flex justify-content-center align-items-center">
+							<div class="col-md-8 text text-center">
+								<div class="img mb-4" style="background-image: url(images/author.jpg);"></div>
+								<div class="desc"> 
+									<h1 class="mb-4" style="color: aliceblue;    font-size: 55px;  font-weight: bold;" >{{e.nom_especie}}</h1>
+									<p class="mb-4">{{e.descripcion}}</p>
+									<p><a href="#fichatecnica" class="btn-custom">Ficha técnica <span class="ion-ios-arrow-forward"></span></a></p>
+								</div>
+							</div>
+						</div> 
+				{% endif %}
+			{% endfor %}
+
+			
+		<footer class="ftco-footer ftco-bg-dark ftco-section" style="background-color: rgb(255, 255, 255)";>
+			<section class="ftco-section">
+				<div class="container">
+					<a id="fichatecnica"> 
+								<div class="row">
+									<div class="col-lg-12">
+										<div class="section-tittle text-center mb-100">
+											<span class=" wow fadeInUp" data-wow-delay=".2s" style="color: rgb(0, 0, 0);">Ficha Técnica</span>
+											<br>
+										</div>
+									</div>
+								</div>
+								<center> 
+								<div class="row">
+									<div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 25px;">
+										<div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".2s" style="padding-left: 0px;">
+											
+											<div class="offers-cap"> 
+												<h3><a style="color: rgb(24, 68, 19);" href="{% url 'galeriabioma' %}">Nombre cientifico</a></h3> 
+												<p class="mb-4">{{e.nom_cientifico}}</p>
+												<p style="color: #000; font-weight: bold;" >  {{e.nom_cientifico}}</p>
+												<a href="{% url 'galeriabioma' %}"><i class="fas fa-arrow-up"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 25px;">
+										<div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".4s" style="padding-left: 0px;">
+											 
+											<div class="offers-cap"> 
+												<h3><a style="color: rgb(24, 68, 19);" href="{% url 'flora'%}">Nombre ingles</a></h3>
+												<p style="color: #000; font-weight: bold;">{{e.nom_ingles}}</p>
+												<a href="{% url 'flora' %}"><i class="fas fa-arrow-up"></i></a>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493);margin-left: 45px; margin-right: 25px;">
+										<div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".6s" style="padding-left: 0px;">
+											<div class="offers-cap"> 
+												<h3><a style="color: rgb(24, 68, 19);" href="{% url 'areasnat'%}">Rango altitudional</a></h3>
+												<p style="color: #000; font-weight: bold;"> {{e.rango_altitudinal}}</p>
+												<a href="{% url 'areasnat'%}"><i class="fas fa-arrow-up flecha"></i></a>
+											</div>
+										</div>
+									</div>
+								</center> 
+					</a>
+				</div>
+			</section>
+		</footer>
+
+		<footer class="ftco-footer ftco-bg-dark ftco-section">
+			<section class="ftco-section">
+ 				<div class="container">
+					<a id="ubicacion">
+						<div class="section-tittle text-center mb-100">
+							<span class=" wow fadeInUp" data-wow-delay=".2s" style="color: rgb(255, 255, 255);">Ubicación</span>
+							<br>
+						</div>
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63733.98834865817!2d-79.99604881062177!3d-3.256858892969559!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x90330e252f104ed1%3A0xea4e189f2b2da97e!2sMachala!5e0!3m2!1ses!2sec!4v1631516410416!5m2!1ses!2sec" width="950" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+				
+					</a>
+				</div>
+    		</section>
+		</footer>
+
+		<!--<section class="ftco-section">
+			<div class="container">
+				<a id="biomas"> 
+
+				</a>
+			</div>
+    	</section>-->
+
+			<footer class="ftco-footer ftco-bg-dark ftco-section">
+				<section class="ftco-section">
+					<div class="container">
+						<a id="galeria"> 
+							<div class="section-tittle text-center mb-100">
+								<span class=" wow fadeInUp" data-wow-delay=".2s" style="color: rgb(255, 255, 255);">Galería</span>
+								<br>
+							</div>
+							
+
+
+						</a>
+					</div>
+				</section>
+			</footer>
+
+ 
+		</div><!-- END COLORLIB-MAIN -->
+	</div><!-- END COLORLIB-PAGE -->
+
+		<!-- 
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		<script src="../static/js/"></script>
+		script --> 
+
+		<script src="{% static 'js/jquery.magnific-popup.min.js'%}"></script>
+		<script src="{% static 'js/aos.js'%}"></script>
+		<script src="{% static 'js/jquery.min.js'%}"></script>
+		<script src="{% static 'js/jquery-migrate-3.0.1.min.js'%}"></script>
+		<script src="{% static 'js/jquery.waypoints.min.js'%}"></script>
+		<script src="{% static 'js/jquery.stellar.min.js'%}"></script>
+		<script src="{% static 'js/owl.carousel.min.js'%}"></script>
+		<script src="{% static 'js/scrollax.min.js'%}"></script>
+		<script src="{% static 'js/main.js'%}"></script>
+
+  	</main>  
+    {% endblock cuerpo %}

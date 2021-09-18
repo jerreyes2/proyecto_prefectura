@@ -1,0 +1,115 @@
+{% extends 'inicio.html' %}
+   
+
+    {% block cuerpo %}
+
+    <header>
+        <!-- Header Start -->
+       <div class="header-area header-sticky">
+            <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="index.html"><img src="assets/img/logo/logo.jpg" alt=""></a>
+                </div>
+                <!-- Main-menu -->
+                <div class="main-menu d-none d-lg-block">
+                    <nav>
+                        <ul id="navigation">                                                                                                                               
+                            <li><a href="">Familia</a></li>
+                            <!--<li><a href="">Services</a></li>
+                            <li><a href="">History</a></li>
+                            <li><a href="">Gallery</a></li>
+                            <li><a href="">Blog</a>
+                                <ul class="submenu">
+                                    <li><a href="blog.html">Blog</a></li>
+                                    <li><a href="single-blog.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Pages</a>
+                                <ul class="submenu">
+                                    <li><a href="elements.html">Element</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="contact.html">Contact</a></li>-->
+                        </ul>
+                    </nav>
+                </div>          
+                <!-- Header-btn -->
+                <div class="d-none d-xl-block">
+                    <a href="bioma_principal.html" class="btn btn2">Visit Us</a>
+                </div>
+                <!-- Mobile Menu -->
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+       </div>
+        <!-- Header End -->
+    </header>
+
+    <div >
+        <section  >
+            <div class="container">
+                <p class="intro">Es un ecosistema de transición entre la 
+                zona marina y tierra firme, caracterizada por innumerables
+                esteros, canales, lagunas y suelos fangosos. 
+                La marea alta inunda y al retirarse deja al
+                descubierto prolongadas y húmedas playas
+                de arena y limo, con extensiones de 2 a 
+                7 km de longitud. Estos sitios son utilizados
+                por varios vertebrados, principalmente aves,
+                como sitios de descanso y búsqueda de alimento</p>
+            </div>
+
+            <div class="history-video-area fix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="video-bg wow fadeInLeft" data-wow-delay=".2s">
+                                <img src="assets/img/gallery/videobg.jpg" alt="">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Section Tittle 03 -->
+                            <div class="section-tittle03 section-tittle02 wow fadeInRight" data-wow-delay=".9s">
+                                <h2>Familia</h2>
+                            </div>
+                            <div class="video-history-cap wow fadeInRight" data-wow-delay=".2s">
+                                <h3>Rectiles</h3>
+                                <p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfugiat nulla pariatur. Excepteur sintxsdfas occaecat, cupidatat non proidente sunt in culpa qui officia deserunt, mollit anim id est laborum. Sedut des perspiciatis unde omnis iste.</p>
+                                <a href="{% url 'subfamilia'%}" class="btn">Saber más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <br>
+
+            <div class="history-video-area fix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="section-tittle03 section-tittle02 wow fadeInLeft" data-wow-delay=".9s">
+                                <h2>Familia</h2>
+                            </div>
+                            <div class="video-history-cap wow fadeInRight " data-wow-delay=".2s">
+                                <h3>Rectiles</h3>
+                                <p>Duis aute irure dolor inasfa reprehenderit in voluptate velit esse cillum reeut cupidatatfugiat nulla pariatur. Excepteur sintxsdfas occaecat, cupidatat non proidente sunt in culpa qui officia deserunt, mollit anim id est laborum. Sedut des perspiciatis unde omnis iste.</p>
+                                <a href="{% url 'subfamilia'%}" class="btn">Saber más</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <!-- Section Tittle 03 -->
+                            <div class="video-bg wow fadeInLeft " data-wow-delay=".2s">
+                                <img src="assets/img/gallery/videobg.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </section>      
+    </div>
+
+    {% endblock cuerpo %}

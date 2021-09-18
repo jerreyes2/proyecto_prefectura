@@ -1,0 +1,204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'assets/img/logo/logo.ico' %}">
+    <title> {% block titulo %}  Bio-Oro   {% endblock titulo %} </title>
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+</head>
+<body class="body-bw">
+
+    {% block cuerpo %}
+        <!-- Preloader Start -->
+    <header>
+        <!-- Header Start -->
+    <div class="header-area header-sticky">
+            <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="{% url 'inicio' %}"><img class="tamano" src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                </div>
+                <!-- Main-menu -->
+                <div class="main-menu d-none d-lg-block">
+                    <nav>
+                        <ul id="navigation">                                                                                                                               
+                            <li><a style="color: rgb(255, 255, 255); font-size:21px"  href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
+                            <li><a style="color: rgb(255, 255, 255); font-size:21px" href="{% url 'sugerencias'%}">Sugerencias</a></li>
+                            <li><a style="color: rgb(255, 255, 255); font-size:21px">Documentos Científicos</a>
+                                <ul class="submenu">
+                                    <li><a href="#">Flora</a></li>
+                                    <li><a href="#">Fauna</a></li>
+                                    <li><a href="#">Áreas Naturales</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>          
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+    </div>
+        <!-- Header End 
+    </header>
+
+    <video id="video" loop autoplay preload muted>
+        <source src="{% static 'assets/img/gallery/background.mp4' %}"type='video/mp4; codecs="avc1,mp4a"' /> 
+        </video> 
+--> 
+    <div class="video-container">
+        
+        <video src="{% static 'assets/img/gallery/fondovideo.mp4' %}" autoplay loop></video>
+        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.ogv' %}" autoplay loop></video>
+        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.webm' %}" autoplay loop></video>
+    </div> 
+    <main>
+        <!-- Types class Start -->
+        <div class="clients-area section-padding30">
+            <div class="container">
+                <!-- Section Tittle -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-100">
+                            <br>
+                            <span class=" wow fadeInUp" data-wow-delay=".2s" style="color: rgb(255, 255, 255);">Bio-Oro</span>
+                            <h2 class=" wow fadeInUp" data-wow-delay=".3s"style="color: rgb(255, 255, 255); font-size:21px">Bio-Oro muestra una colección de información referente a la biodeversidad de la Provincia de El Oro en Ecuador.
+                                Cuenta con datos de especies de flora, fauna y áreas naturales, además de proporcionar contenido multimedia disponble para todos los usuarios, enlaces a libros
+                                y la posibilidad de agregar nuevas especies.
+                            </h2>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <center> 
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 45px;">
+                        <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".2s" style="padding-left: 0px;">
+                            <div class="offers-img">
+                                <img src="{% static 'assets/img/gallery/fauna.png' %}" alt="">
+                            </div>
+                            <div class="offers-cap"> 
+                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'galeriabioma' %}">Fauna</a></h3>
+                                <span style="margin-left: 50px;">1</span>
+                                <p style="color: #000; font-weight: bold;" > Información sobre la fauna de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
+                                <a href="{% url 'galeriabioma' %}"><i class="fas fa-arrow-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 45px;">
+                        <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".4s" style="padding-left: 0px;">
+                            <div class="offers-img">
+                                <img src="{% static 'assets/img/gallery/flora.png' %}" alt="">
+                            </div>
+                            <div class="offers-cap">
+                                <span style="margin-left: 50px;">2</span>
+                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'flora'%}">Flora</a></h3>
+                                <p style="color: #000; font-weight: bold;">Información sobre la flora de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
+                                <a href="{% url 'flora' %}"><i class="fas fa-arrow-up"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493);margin-left: 45px; margin-right: 45px;">
+                        <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".6s" style="padding-left: 0px;">
+                            <div class="offers-img">
+                                <img src="{%  static 'assets/img/gallery/areasnat.png'%}" alt="">
+                            </div>
+                            <div class="offers-cap">
+                                <span style="margin-left: 50px;">3</span>
+                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'areasnat'%}">Áreas Naturales</a></h3>
+                                <p style="color: #000; font-weight: bold;">Información sobre los ecosistemas de la Provincia de El Oro, estrategias de conservación y manejo.</p>
+                                <a href="{% url 'areasnat'%}"><i class="fas fa-arrow-up flecha"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+                </div>
+            </div>
+        </div>
+        <!-- Types class End -->
+    </main>
+    
+
+    {% endblock cuerpo %}
+
+    <footer>
+        <div class="footer-area fix">
+            <img style="margin: 75px;" src="{% static 'assets/img/gallery/prefectura.png' %}">
+            <!-- Footer Caption -->
+            <div class="footer-caption wow fadeInRight" data-wow-delay=".6s">
+                <div class="footer-menu ">
+                    <div class="single-menu">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <ul>
+                                    <li><a>Teléfono: 072933114</a></li>
+                                    <li><a>Dirección: Junins/n y Av. 25 de Junio</a></li>
+                                    <li><a>Gobierno Autónomo Descentralizado Provincial de El Oro</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright pt-40">
+                    <p><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GADPEO</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
+                </div>
+            </div>
+        </div>
+   </footer>
+   
+	<!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js'%}"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js'%}"></script>
+        <script src="{% static 'js/popper.min.js'%}"></script>
+        <script src="{% static 'js/bootstrap.min.js'%}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js'%}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'js/slick.min.js'%}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js'%}"></script>
+		<script src="{% static 'js/animated.headline.js'%}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js'%}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js'%}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+		<script src="{% static 'js/jquery.sticky.js'%}"></script>
+        
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js'%}"></script>
+        <script src="{% static 'js/jquery.form.js'%}"></script>
+        <script src="{% static 'js/jquery.validate.min.js'%}"></script>
+        <script src="{% static 'js/mail-script.js'%}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js'%}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js'%}"></script>
+        <script src="{% static 'js/main.js'%}"></script>
+</body>
+</html>
