@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block title %}{% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% load static %}
+{% block branding %}
+<link rel="stylesheet" href="{% static 'estilos_django.css' %}">
+    <div class="noticia">
+        <img class="izquierda" src="{% static 'logo_django2.png' %}">
+        <aside></aside>
+        <div class="reset"></div>
+    </div>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
