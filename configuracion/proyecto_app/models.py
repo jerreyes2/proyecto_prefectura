@@ -46,6 +46,8 @@ class estadoconservacion(models.Model):
     class Meta:
         db_table = 'estadoconservacion'
 
+
+
 class fauna(models.Model):
     nom_especie = models.CharField('nom_especie',max_length=200,null=True)
     nom_cientifico = models.CharField('nom_cientifico',max_length=200,null=True)
@@ -55,7 +57,7 @@ class fauna(models.Model):
     ubicacion = models.CharField('ubicacion',max_length=500,null=True)
     descripcion = models.CharField('descripcion',max_length=10000,null=True)
     autor = models.CharField('autor',max_length=200,null=True)
-    imagen = models.ImageField(upload_to='albums/images/', null=True, blank=True)
+    
     id_estado_conservacion = models.ForeignKey(estadoconservacion, on_delete=models.CASCADE,null=True)
     def __str__(self):
         return self.nom_especie
@@ -63,6 +65,15 @@ class fauna(models.Model):
     class Meta:
         db_table = 'fauna'
 
+
+class imagen_fauna(models.Model):
+    id_ima = models.IntegerField('id_fauna',primary_key = True)
+    id_especie = models.ForeignKey(fauna, on_delete=models.CASCADE,null=True)
+    autor = models.CharField('autor',max_length=200,null=True)
+    imagen = models.ImageField(upload_to='albums/images/', null=True, blank=True)
+
+    class Meta:
+        db_table = 'imagen_fauna'
 
 class fauna_locacion(models.Model):
     id_especie = models.ForeignKey(fauna, on_delete=models.CASCADE,null=True)
@@ -126,5 +137,502 @@ class familia(models.Model):
     comenatarios_taxonomicos = models.CharField(max_length=10, verbose_name='comenatarios_taxonomicos')
     #distribucion_composicion--
     distribucion_composicion = models.CharField(max_length=10, verbose_name='distribucion_composicion')
+
+
+# --- Ricky :v
+
+class clases(models.Model):
+    id_clase = models.IntegerField('id_clase',primary_key = True)
+    nom_clase = models.CharField('nom_familia',max_length=200,null=True)
+    tipo = models.CharField('tipo',max_length=200,null=True)
+    abund_clase = models.CharField('abund_clase',max_length=200,null=True)
+    num_ord_clase = models.CharField('num_ord_clase',max_length=200,null=True)
+    def __str__(self):
+        return self.nom_clase
+
+    class Meta:
+        db_table = 'clases'
+
+class ordenes(models.Model):
+    id_orden = models.IntegerField('id_orden',primary_key = True)
+    nom_orden = models.CharField('nom_familia',max_length=200,null=True)
+    tipo = models.CharField('tipo',max_length=200,null=True)
+    id_clase = models.ForeignKey(clases, on_delete=models.CASCADE,null=True)
+    def __str__(self):
+        return self.nom_orden
+
+    class Meta:
+        db_table = 'ordenes'
+
+class familias(models.Model):
+    id_familia = models.IntegerField('id_familia',primary_key = True)
+    nom_familia = models.CharField('nom_familia',max_length=200,null=True)
+    tipo = models.CharField('tipo',max_length=200,null=True)
+    id_orden = models.ForeignKey(ordenes, on_delete=models.CASCADE,null=True)
+    id_clase = models.ForeignKey(clases, on_delete=models.CASCADE,null=True)
+    def __str__(self):
+        return self.nom_familia
+
+    class Meta:
+        db_table = 'familias'
+
+class abundancias(models.Model):
+    id_abundancia = models.IntegerField('id_abundancia',primary_key = True)
+    tax_abundancia = models.CharField('tax_abundancia',max_length=200,null=True)
+    num_abundancia = models.FloatField(null=True)
+    ran_abundancia = models.CharField('ran_abundancia',max_length=200,null=True)
+    id_familia = models.ForeignKey(familias, on_delete=models.CASCADE,null=True)
+    id_orden = models.ForeignKey(ordenes, on_delete=models.CASCADE,null=True)
+    id_clase = models.ForeignKey(clases, on_delete=models.CASCADE,null=True)
+    def __str__(self):
+        return self.tax_abundancia
+
+    class Meta:
+        db_table = 'abundancias'
+
+class pisos_zeogeograficos(models.Model):
+    id_pisozeogeografico = models.IntegerField('id_pisozeogeografico',primary_key = True)
+    nom_pisozeogeografico = models.CharField('nom_pisozeogeografico',max_length=200,null=True)
+    sigla_pisozeogeografico = models.CharField('sigla_pisozeogeografico',max_length=200,null=True)
+    def __str__(self):
+        return self.nom_pisozeogeografico
+
+    class Meta:
+        db_table = 'pisos_zeogeograficos'
+
+class ecosistemas(models.Model):
+    id_ecosistema = models.IntegerField('id_ecosistema',primary_key = True)
+    nom_ecosistema = models.CharField('nom_ecosistema',max_length=200,null=True)
+    cod_ecosistema = models.CharField('cod_ecosistema',max_length=200,null=True)
+    id_pisozeogeografico = models.ForeignKey(pisos_zeogeograficos, on_delete=models.CASCADE,null=True)
+    def __str__(self):
+        return self.nom_ecosistema
+    
+    class Meta:
+        db_table = 'ecosistemas'
+
+class abundancias_ecosistemas(models.Model):
+    id_ecosistema = models.ForeignKey(ecosistemas, on_delete=models.CASCADE,null=True)
+    id_abundancia = models.ForeignKey(abundancias, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'abundancias_ecosistemas'
+
+class unidades_hidrograficas(models.Model):
+    id_uh = models.IntegerField('id_uh',primary_key = True)
+    nom_uh = models.CharField('nom_uh',max_length=200,null=True)
+    cod_uh = models.IntegerField(null=True)
+    riqueza_uh = models.FloatField(null=True)
+    abundancia_uh = models.FloatField(null=True)
+    def __str__(self):
+        return self.nom_uh
+
+    class Meta:
+        db_table = 'unidades_hidrograficas'
+
+class abundancias_uh(models.Model):
+    id_abundancia = models.ForeignKey(abundancias, on_delete=models.CASCADE,null=True)
+    id_uh = models.ForeignKey(unidades_hidrograficas, on_delete=models.CASCADE,null=True)
+
+    class Meta:
+        db_table = 'abundancias_uh'
+
+class actividades(models.Model):
+    id_actividad = models.IntegerField('id_actividad',primary_key = True)
+    nom_actividad = models.CharField('nom_actividad',max_length=200,null=True)
+    sigla_actividad = models.CharField('sigla_actividad',max_length=200,null=True)
+    def __str__(self):
+        return self.nom_actividad
+
+    class Meta:
+        db_table = 'actividades'
+
+# --> aqui debajo poner modelo bosques (Rene)
+#08/10 KEv
+
+class rios(models.Model):
+    id_rio = models.IntegerField('id_rio',primary_key = True)
+    nom_rio = models.CharField('nom_rio',max_length=200,null=True)
+    categoria = models.CharField('categoria',max_length=200,null=True)
+
+    class Meta:
+        db_table = 'rios'
+
+
+class bosques(models.Model):
+    id_bosque = models.IntegerField('id_bosque',primary_key = True)
+    nom_bosque = models.CharField('nom_bosque',max_length=200,null=True)
+    pro_administrador_bosque = models.CharField('pro_administrador_bosque',max_length=200,null=True)
+    localizacion_area = models.CharField('localizacion_area',max_length=200,null=True)
+    micro_cuencas = models.CharField('micro_cuencas',max_length=200,null=True)
+    reg_oficial_bosque = models.CharField('reg_oficial_bosque',max_length=200,null=True)
+    hec_bosque = models.FloatField(null=True)
+    vegetacion_remanente = models.FloatField(null=True)
+    altitud_max = models.FloatField(null=True)
+    altitud_min = models.FloatField(null=True)
+
+    class Meta:
+        db_table = 'bosques'
+
+class bosques_rios(models.Model):
+    id_rio = models.ForeignKey(rios, on_delete=models.CASCADE,null=True)
+    id_bosque = models.ForeignKey(bosques, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'bosques_rios'
+
+
+class arboles(models.Model):
+    id_arbol = models.IntegerField('id_arbol',primary_key = True)
+    nom_arbol = models.CharField('nom_arbol',max_length=200,null=True)
+    esp_arbol = models.CharField('esp_arbol',max_length=200,null=True)
+    alt_arbol = models.FloatField(null=True)
+    tip_arbol = models.CharField('tip_arbol',max_length=200,null=True)
+    id_bosque = models.ForeignKey(bosques, on_delete=models.CASCADE,null=True)
+
+    class Meta:
+        db_table = 'arboles'
+
+
+# ----- Erreyes
+
+class areas(models.Model):
+    #id_area = models.IntegerField()
+    cat_area = models.CharField("cant_area", max_length=100, null=True)
+    nom_area = models.CharField("nom_area", max_length=100, null= True)
+    fe_creacion = models.DateField( "fe_creacion", null= True)
+    acu_resolucion_area = models.CharField("acu_resolucion_area", max_length=200, null= True)
+    aut_competente_area = models.CharField("aut_competente_area", max_length=200, null=True)    
+    superfici_area = models.CharField("superfici_area", max_length=200, null=True)    
+    tipo = models.CharField("tipo", max_length=200, null=True)    
+
+    class Meta:
+        db_table = 'areas'
+
+class areas_naturales_corredor_ecolog(models.Model):
+    
+    #id_area_corredor = models.IntegerField()
+    asp_min_cap_inst = models.CharField("asp_min_cap_inst", max_length=200, null=True)
+    analisis = models.CharField("analisis", max_length=200, null=True)
+    observaciones = models.CharField("observaciones", max_length=200, null=True)
+
+    class Meta:
+        db_table = 'areas_naturales_corredor_ecolog'
+
+
+        
+class provincias(models.Model):
+    #id_provincia = models.ForeignKey("id_provincia")
+    nom_provincia = models.CharField("nomb_provincia",max_length=30,null=True)
+
+
+    class Meta:
+        db_table = 'provincias'
+
+
+class biomas(models.Model):
+    
+    nom_bioma = models.CharField('nom_bioma',max_length=200,null=True)
+    sigla_bioma = models.CharField('sigla_bioma',max_length=30,null=True)
+    des_altitudinal_bioma = models.CharField('des_altitudinal_bioma',max_length=30,null=True)
+    has_altitudinal_bioma = models.CharField('has_altitudinal_bioma',max_length=30,null=True)
+    remanencia = models.CharField('remanencia',max_length=30,null=True)
+    ext_bioma = models.CharField('ext_bioma',max_length=30,null=True)
+    id_provincia = models.ForeignKey(provincias, on_delete=models.CASCADE,null=True)
+
+    def __str__(self):
+        return self.nom_bioma
+
+    class Meta:
+        db_table = 'biomas'
+
+
+# -- tabla de cantones ->
+class cantones(models.Model):
+    nom_canton = models.CharField('nom_canton',max_length=200,null=True)
+    id_provincia = models.ForeignKey(provincias, on_delete=models.CASCADE,null=True)
+    
+    def __str__(self):
+        return self.nom_canton
+
+    class Meta:
+        db_table = 'cantones'
+
+
+class biomas_cantones(models.Model):
+    id_bioma = models.ForeignKey(biomas,on_delete= models.CASCADE, null=True)
+    id_canton = models.ForeignKey(cantones,on_delete= models.CASCADE, null=True)
+
+    class Meta:
+        db_table = 'biomas_cantones'
+
+class biomas_ecosistemas(models.Model):
+    id_bioma = models.ForeignKey(biomas,on_delete= models.CASCADE, null=True)
+    id_ecosistema = models.ForeignKey(ecosistemas,on_delete= models.CASCADE, null=True)
+
+    class Meta:
+        db_table = 'biomas_ecosistemas'
+
+
+#07/10
+
+
+
+
+# Erreyes 2
+
+class estado_conservacion(models.Model):
+    id_estado_conservacion = models.IntegerField('id_estado_conservacion',primary_key = True)
+    categoria = models.CharField('categoria',max_length=100,null=True)
+    sigla =  models.CharField('sigla',max_length=50,null=True)
+    descripcion = models.CharField('descripcion',max_length=200,null=True)
+
+    class Meta:
+            db_table = 'estado_conservacion'
+    
+class clasificacion(models.Model):
+    id_clasificacion = models.IntegerField('id_clasificacion',primary_key = True)
+    nom_clasificacion = models.CharField('nom_clasificacion',max_length=200,null=True)
+    id_estado_conservacion = models.ForeignKey(estado_conservacion,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'clasificacion'
+
+
+class distribuciones(models.Model):
+    id_distribucion = models.IntegerField('id_distribucion',primary_key = True)
+    nom_distribucion = models.CharField('nom_distribucion',max_length=200,null=True)
+    sigla_distribucion = models.CharField('sigla_distribucion',max_length=50,null=True)
+    
+    class Meta:
+        db_table = 'distribuciones'
+
+
+    
+class nichotrofico(models.Model):
+    id_nicho_trofico = models.IntegerField('id_nicho_trofico',primary_key = True)
+    nom_nicho = models.CharField('nom_nicho',max_length=150,null=True)
+    sigla_nicho = models.CharField('sigla_nicho',max_length=50,null=True)
+    descripcion = models.CharField('descripcion',max_length=150,null=True)
+    
+    class Meta:
+        db_table = 'nichotrofico'
+
+
+class personas(models.Model):
+    id_persona = models.IntegerField('id_persona', primary_key = True)
+    nom_persona = models.CharField('nom_persona',max_length=255,null=True)
+    ape_pesona = models.CharField('ape_persona',max_length=255,null=True)
+    tipo = models.CharField('tipo',max_length=100,null=True)
+    
+    class Meta:
+        db_table = 'personas'
+    
+
+
+class especies(models.Model):
+    id_especie = models.IntegerField('id_especie', primary_key = True)
+    nom_especie = models.CharField('nom_especie',max_length=255,null=True)
+    tipo =  models.CharField('tipo',max_length=100,null=True)
+    rango_altitudinal = models.CharField('rango_altitudinal',max_length=255,null=True)
+    ubicacion = models.CharField('ubicacion',max_length=255,null=True)
+    descripcion = models.CharField('descripcion',max_length=255,null=True)
+    nom_cientifico = models.CharField('nom_cientifico',max_length=100,null=True)
+    nom_ingles = models.CharField('nom_ingles',max_length=100,null=True)
+
+    id_estado_conservacion = models.ForeignKey(estado_conservacion,on_delete= models.CASCADE, null=True)
+    nacional = models.IntegerField('nacional')
+    id_nicho_trofico = models.ForeignKey(nichotrofico, on_delete= models.CASCADE, null=True)
+    id_persona =  models.ForeignKey(personas, on_delete= models.CASCADE, null=True)
+    id_familia =  models.ForeignKey(familias, on_delete= models.CASCADE, null=True)
+    id_orden = models.IntegerField('')
+    id_clase = models.ForeignKey(clases, on_delete= models.CASCADE, null=True)
+    anio_descubrimiento = models.FloatField('')
+
+
+    class Meta:
+        db_table = 'especies'
+
+
+# -- ricky 2
+
+
+
+class canton_ecosistema(models.Model):
+    id_canton = models.ForeignKey(cantones, on_delete=models.CASCADE,null=True)
+    id_ecosistema = models.ForeignKey(ecosistemas, on_delete=models.CASCADE,null=True)
+
+    class Meta:
+        db_table = 'canton_ecosistema'
+
+
+class cantones_rio(models.Model):
+    id_canton = models.ForeignKey(cantones, on_delete=models.CASCADE,null=True)
+    id_rio = models.ForeignKey(rios, on_delete=models.CASCADE,null=True)
+
+    class Meta:
+        db_table = 'cantones_rio'
+
+class cantones_unidades_hidrograficas(models.Model):
+    id_uh = models.ForeignKey(unidades_hidrograficas, on_delete=models.CASCADE,null=True)
+    id_canton = models.ForeignKey(cantones, on_delete=models.CASCADE,null=True)
+    id_provincia = models.ForeignKey(provincias, on_delete=models.CASCADE,null=True)
+
+
+    class Meta:
+        db_table = 'cantones_unidades_hidrograficas'
+
+class circuitos_integracion_biolog(models.Model):
+    id_circuito = models.IntegerField('id_circuito',primary_key = True)
+    nombre_circuito = models.CharField('nombre_circuito',max_length=200,null=True)
+    desc_circuito = models.CharField('desc_circuito',max_length=200,null=True)
+
+    def __str__(self):
+        return self.nombre_circuito
+        
+    class Meta:
+        db_table = 'circuitos_integracion_biolog'
+
+        
+#08/10 KEv2
+class endemismos(models.Model):
+    id_endemismo = models.IntegerField('id_endemismo',primary_key = True)
+    nom_endemismo = models.CharField('nom_endemismo',max_length=100,null=True)
+    sigla_endemismo = models.CharField('sigla_endemismo',max_length=50,null=True)
+        
+    class Meta:
+        db_table = 'endemismos'
+
+
+class locaciones(models.Model):
+    id_locacion = models.IntegerField('id_locacion',primary_key = True)
+    nom_locacion = models.CharField('nom_locacion',max_length=100,null=True)
+    sigla_locacion = models.CharField('sigla_locacion',max_length=50,null=True)
+    alt_locacion = models.FloatField(null=True)
+    #id_parroquia = models.ForeignKey(parroquias, on_delete=models.CASCADE,null=True)
+    id_canton = models.ForeignKey(cantones, on_delete=models.CASCADE,null=True)
+    id_provincia = models.ForeignKey(provincias, on_delete=models.CASCADE,null=True)
+    coordenadas = models.CharField('nom_endemismo',max_length=100,null=True)
+    id_bioma = models.ForeignKey(biomas, on_delete=models.CASCADE,null=True)
+    latitud = models.FloatField(null=True)
+    longitud = models.FloatField(null=True)
+    
+    class Meta:
+        db_table = 'locaciones'
+
+
+class especie_locaciones(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    id_locacion = models.ForeignKey(locaciones, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'especie_locaciones'
+
+class especie_registros(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    #id_registro = models.ForeignKey(registros, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'especie_registros'
+
+class especies_actividades(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    id_actividad = models.ForeignKey(actividades, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'especies_actividades'
+
+
+class especies_distribucion(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    id_distribucion = models.ForeignKey(distribuciones, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'especies_distribucion'
+
+
+class especies_localidades_muestreo(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    #id_muestreo = models.ForeignKey(localidades_muestreo, on_delete=models.CASCADE,null=True)
+    
+    class Meta:
+        db_table = 'especies_localidades_muestreo'
+
+
+# -- Ricky 3 -
+
+class tipos_vegetacion(models.Model):
+    id_tipovegetacion = models.IntegerField('id_tipovegetacion',primary_key = True)
+    nom_tipovegetacion = models.CharField('nom_tipovegetacion',max_length=200,null=True)
+    sigla_tipovegetacion = models.CharField('sigla_tipovegetacion',max_length=200,null=True)
+
+    def __str__(self):
+        return self.nom_tipovegetacion
+
+    class Meta:
+        db_table = 'tipos_vegetacion'
+
+class especies_tiposvegetacion(models.Model):
+    id_especie = models.ForeignKey(especies, on_delete=models.CASCADE,null=True)
+    id_tiposvegetacion = models.ForeignKey(tipos_vegetacion, on_delete=models.CASCADE,null=True)
+
+    class Meta:
+        db_table = 'especies_tiposvegetacion'
+
+class estaciones_muestreos(models.Model):
+    id_em = models.IntegerField('id_em',primary_key = True)
+    nom_em = models.CharField('nom_em',max_length=200,null=True)
+    nom_formal_em = models.CharField('nom_formal_em',max_length=200,null=True)
+    cod_em = models.CharField('cod_em',max_length=200,null=True)
+    id_rio = models.ForeignKey(rios, on_delete=models.CASCADE,null=True)
+    ind_shannon_em = models.FloatField(null=True)
+
+    def __str__(self):
+        return self.nom_em
+
+    class Meta:
+        db_table = 'estaciones_muestreos'
+
+class flora(models.Model):
+    id_flora = models.IntegerField('id_flora',primary_key = True)
+    nom_flora = models.CharField('nom_flora',max_length=200,null=True)
+    tipo = models.CharField('tipo',max_length=200,null=True)
+    caracteristicas = models.CharField('caracteristicas',max_length=200,null=True)
+    rango_altitudinal = models.CharField('rango_altitudinal',max_length=200,null=True)
+    etimologia = models.CharField('etimologia',max_length=200,null=True)
+    diagnosis = models.CharField('diagnosis',max_length=200,null=True)
+    comentario_taxonomicos = models.CharField('comentario_taxonomicos',max_length=200,null=True)
+    distribucion_composicion = models.CharField('distribucion_composicion',max_length=200,null=True)
+    imagen = models.CharField('imagen',max_length=200,null=True)
+    autor = models.CharField('autor',max_length=200,null=True)
+
+    def __str__(self):
+        return self.nom_flora
+
+    class Meta:
+        db_table = 'flora'
+
+# --KEv
+class microcuencas(models.Model):
+    id_microcuenca = models.IntegerField('id_microcuenca',primary_key = True)
+    nom_microcuenca = models.CharField('nom_microcuenca',max_length=100,null=True)
+    sup_km2_microcuenca = models.CharField('sup_km2_microcuenca',max_length=100,null=True)
+    zona1_microcuenca = models.CharField('zona1_microcuenca',max_length=100,null=True)
+    zona2_microcuenca = models.CharField('zona2_microcuenca',max_length=100,null=True)
+    zona3_microcuenca = models.CharField('zona3_microcuenca',max_length=100,null=True)
+    zona4_microcuenca = models.CharField('zona4_microcuenca',max_length=100,null=True)
+    zona5_microcuenca = models.CharField('zona5_microcuenca',max_length=100,null=True)
+    zona6_microcuenca = models.CharField('zona6_microcuenca',max_length=100,null=True)
+    
+    class Meta:
+        db_table = 'microcuencas'
+
+
+class ordenes_biomas(models.Model):
+    id_orden = models.ForeignKey(ordenes,on_delete= models.CASCADE, null=True)
+    id_bioma = models.ForeignKey(biomas,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'ordenes_biomas'
 
 """

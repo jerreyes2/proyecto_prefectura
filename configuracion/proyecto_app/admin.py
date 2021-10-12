@@ -39,8 +39,6 @@ from .models import fauna
 admin.site.register(fauna, faunaAdmin)
 
 
-
-
 class faunaLocacionAdmin (admin.ModelAdmin):
     list_display = ("id_especie","id_locacion")
     list_filter = (
@@ -61,4 +59,3 @@ class faunaBiomaAdmin (admin.ModelAdmin):
 
 from .models import fauna_biomas
 admin.site.register(fauna_biomas, faunaBiomaAdmin)
-

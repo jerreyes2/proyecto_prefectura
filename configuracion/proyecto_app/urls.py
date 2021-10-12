@@ -38,10 +38,6 @@ urlpatterns = [
     #
     path("galeriabioma/", views.galeriabioma, name="galeriabioma"),
     
-    
-   
-    
-    
 
     
    # path('familia/list/', FamiliaListView.as_view(), name='category_list'),

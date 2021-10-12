@@ -8,6 +8,13 @@
     <link rel="shortcut icon" href="{% static 'assets/img/logo/logo.ico' %}">
     <title> {% block titulo %}  Bio-Oro   {% endblock titulo %} </title>
 
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+
     <!-- CSS here -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
@@ -38,13 +45,16 @@
                 <div class="main-menu d-none d-lg-block">
                     <nav>
                         <ul id="navigation">                                                                                                                               
-                            <li><a style="color: rgb(255, 255, 255); font-size:21px"  href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
-                            <li><a style="color: rgb(255, 255, 255); font-size:21px" href="{% url 'sugerencias'%}">Sugerencias</a></li>
-                            <li><a style="color: rgb(255, 255, 255); font-size:21px">Documentos Científicos</a>
+                            <li><a style="color:#fff" href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
+                            <li><a style="color:#fff" href="{% url 'sugerencias'%}">Sugerencias</a></li>
+                            <li><a style="color:#fff">Documentos Científicos</a>
                                 <ul class="submenu">
-                                    <li><a href="#">Flora</a></li>
-                                    <li><a href="#">Fauna</a></li>
-                                    <li><a href="#">Áreas Naturales</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2019/02/Qrquideas_y_bromelias_de_el_Oro.pdf">Orquídeas y Bromelias de El Oro</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2019/02/Ecosistemas_dulceacuicolas_El_Oro.pdf">Ecosistemas Dulceacuícolas de El Oro</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2019/02/Mamiferos_de_El_Oro_low.pdf">Mamíferos de El Oro</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2020/10/Libro%20Propuesta%20ACP%20y%20Corredor%20Ecol%c3%b3gico%20de%20la%20provincia%20de%20El%20Oro%202019.pdf">Propuesta de Subsistemas de Áreas Naturales de Conservación de El Oro</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2020/10/Anfibios,%20reptiles%20y%20aves%20de%20la%20provincia%20de%20El%20Oro.%20Primera%20Edici%c3%b3n.pdf">Anfibios y Reptiles de El Oro</a></li>
+                                    <li><a target="_blank" href="http://inabio.biodiversidad.gob.ec/wp-content/uploads/2020/10/Gu%c3%ada%20de%20Anfibios,%20Reptiles%20y%20Aves%20de%20la%20provincia%20de%20El%20Oro.%20Segunda%20Edici%c3%b3n%20low.pdf">Anfibios y Reptiles de El Oro Segunda Edición</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -55,19 +65,12 @@
                 </div>
             </div>
     </div>
-        <!-- Header End 
-    </header>
-
-    <video id="video" loop autoplay preload muted>
-        <source src="{% static 'assets/img/gallery/background.mp4' %}"type='video/mp4; codecs="avc1,mp4a"' /> 
-        </video> 
---> 
     <div class="video-container">
-        
-        <video src="{% static 'assets/img/gallery/fondovideo.mp4' %}" autoplay loop></video>
-        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.ogv' %}" autoplay loop></video>
-        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.webm' %}" autoplay loop></video>
+        <video src="{% static 'assets/img/gallery/VIDEO_INICIO.mp4' %}" muted autoplay loop></video>
+        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.ogv' %}"autoplay loop preload></video>
+        <video src="{% static 'assets/img/gallery/Leaves blowind in the wind.webm' %}" autoplay loop preload></video>
     </div> 
+
     <main>
         <!-- Types class Start -->
         <div class="clients-area section-padding30">
@@ -78,8 +81,8 @@
                         <div class="section-tittle text-center mb-100">
                             <br>
                             <span class=" wow fadeInUp" data-wow-delay=".2s" style="color: rgb(255, 255, 255);">Bio-Oro</span>
-                            <h2 class=" wow fadeInUp" data-wow-delay=".3s"style="color: rgb(255, 255, 255); font-size:21px">Bio-Oro muestra una colección de información referente a la biodeversidad de la Provincia de El Oro en Ecuador.
-                                Cuenta con datos de especies de flora, fauna y áreas naturales, además de proporcionar contenido multimedia disponble para todos los usuarios, enlaces a libros
+                            <h2 class=" wow fadeInUp" data-wow-delay=".3s"style="color: rgb(255, 255, 255); font-size:21px">Bio-Oro muestra una colección de información referente a la biodiversidad de la Provincia de El Oro en Ecuador.
+                                Cuenta con datos de especies de flora, fauna y áreas naturales, además de proporcionar contenido multimedia disponible para todos los usuarios, enlaces a libros
                                 y la posibilidad de agregar nuevas especies.
                             </h2>
                             <br>
@@ -88,48 +91,49 @@
                 </div>
                 <center> 
                 <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 45px;">
+                    <div class="col-lg-3 col-md-6 col-sm-6" style=" margin-left: 45px; margin-right: 45px;">
                         <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".2s" style="padding-left: 0px;">
                             <div class="offers-img">
-                                <img src="{% static 'assets/img/gallery/fauna.png' %}" alt="">
+                                <img src="{% static 'assets/img/inicio/rana_logo.png' %}" alt="">
                             </div>
                             <div class="offers-cap"> 
-                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'galeriabioma' %}">Fauna</a></h3>
+                                <h3><a style="color: rgb(255, 255, 255);" href="{% url 'galeriabioma' %}">Fauna</a></h3>
                                 <span style="margin-left: 50px;">1</span>
-                                <p style="color: #000; font-weight: bold;" > Información sobre la fauna de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
+                                <p style="color: #fff; font-weight: bold;" > Información sobre la fauna de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
                                 <a href="{% url 'galeriabioma' %}"><i class="fas fa-arrow-up"></i></a>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493); margin-left: 45px; margin-right: 45px;">
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 45px; margin-right: 45px;">
                         <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".4s" style="padding-left: 0px;">
                             <div class="offers-img">
-                                <img src="{% static 'assets/img/gallery/flora.png' %}" alt="">
+                                <img src="{% static 'assets/img/inicio/flor_logo.png' %}" alt="">
                             </div>
                             <div class="offers-cap">
                                 <span style="margin-left: 50px;">2</span>
-                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'flora'%}">Flora</a></h3>
-                                <p style="color: #000; font-weight: bold;">Información sobre la flora de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
+                                <h3><a style="color: rgb(255, 255, 255);" href="{% url 'flora'%}">Flora</a></h3>
+                                <p style="color: rgb(255, 255, 255); font-weight: bold;">Información sobre la flora de la provincia de El Oro. Incluye datos sobre las especies, fotografías, mapas de distribución.</p>
                                 <a href="{% url 'flora' %}"><i class="fas fa-arrow-up"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6" style="background-color: rgba(255, 255, 255, 0.493);margin-left: 45px; margin-right: 45px;">
+                    <div class="col-lg-3 col-md-6 col-sm-6" style="margin-left: 45px; margin-right: 45px;">
                         <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".6s" style="padding-left: 0px;">
                             <div class="offers-img">
-                                <img src="{%  static 'assets/img/gallery/areasnat.png'%}" alt="">
+                                <img src="{%  static 'assets/img/inicio/Palmeras_logo.png'%}" alt="">
                             </div>
                             <div class="offers-cap">
                                 <span style="margin-left: 50px;">3</span>
-                                <h3><a style="color: rgb(24, 68, 19);" href="{% url 'areasnat'%}">Áreas Naturales</a></h3>
-                                <p style="color: #000; font-weight: bold;">Información sobre los ecosistemas de la Provincia de El Oro, estrategias de conservación y manejo.</p>
+                                <h3><a style="color: rgb(255, 255, 255);" href="{% url 'areasnat'%}">Áreas Naturales</a></h3>
+                                <p style="color: rgb(255, 255, 255); font-weight: bold;">Información sobre los ecosistemas de la Provincia de El Oro, estrategias de conservación y manejo.</p>
                                 <a href="{% url 'areasnat'%}"><i class="fas fa-arrow-up flecha"></i></a>
                             </div>
                         </div>
                     </div>
-                </center>
+                
                 </div>
+                </center>
             </div>
         </div>
         <!-- Types class End -->
@@ -149,7 +153,7 @@
                             <div class="footer-tittle">
                                 <ul>
                                     <li><a>Teléfono: 072933114</a></li>
-                                    <li><a>Dirección: Junins/n y Av. 25 de Junio</a></li>
+                                    <li><a>Dirección: Junin s/n y Av. 25 de Junio</a></li>
                                     <li><a>Gobierno Autónomo Descentralizado Provincial de El Oro</a></li>
                                 </ul>
                             </div>
@@ -158,11 +162,19 @@
                 </div>
                 <div class="copyright pt-40">
                     <p><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GADPEO</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GADPEO</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
                 </div>
             </div>
         </div>
+        <div class="redes_sociales">
+            <lu class="social"> 
+                <li><a class="facebook" href="https://www.facebook.com/PrefecturaElOro/"  target="_blank" class="fab fa-facebook"></a></li>
+                <li><a class="instagram" href="https://www.instagram.com/prefecturaeloro/" target="_blank" class="fab fa-instagram"></a></li>
+                <li><a class="twitter" href="https://twitter.com/PrefecturaElOro"  target="_blank" class="fab fa-twitter"></a></li>
+            </lu>
+        </div>
+        
    </footer>
    
 	<!-- JS here -->

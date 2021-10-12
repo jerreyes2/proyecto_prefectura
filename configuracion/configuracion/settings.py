@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'colorfield'
+    
 ]
 
 X_FRAME_OPTIONS= 'SAMEORIGIN'
@@ -56,6 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
 ]
 
 ROOT_URLCONF = 'configuracion.urls'
@@ -147,6 +149,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 STATIC_ROOT= os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'proyecto_app/static'),)
 
@@ -156,3 +161,16 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'proyecto_app/static'),)
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+#NECESARIO PARA ENVIAR LOS CORREOS by RrOMERO
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # new
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS= True
+EMAIL_PORT = 587 
+EMAIL_HOST_USER = "gadpeoeloro@gmail.com"
+EMAIL_HOST_PASSWORD="prefectura123*"
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+

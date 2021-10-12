@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.conf import settings
-from django.core.mail import send_mail
+from django.core.mail import send_mail,BadHeaderError
 
 #from django.template.loader import get_template
 
@@ -39,9 +39,6 @@ def flora(request):
 #def fauna(request):
 #    return render(request, "fauna.html")
 
-
-
-
 def fauna(request, id_bioma):
     bioma_solo = bioma.objects.get(id=id_bioma)
     return render(request, "fauna.html", {'bioma_solo' : bioma_solo})
@@ -72,12 +69,26 @@ def galeriabioma(request):
 
 def sugerencias(request):
     if request.method == "POST":
+        print(request.POST["asunto"])
+        print(request.POST["comentario"])
+        print(request.POST["email"])
+        print(request.POST["celular"])
+        print(request.POST["nombre"])
+        print(request.POST["apellido"])
         subject =request.POST["asunto"]
-        message =request.POST["mensaje"] + "" + request.POST["email"]
+        message =request.POST["comentario"]
         email_from = settings.EMAIL_HOST_USER
+        to = request.POST["email"]
 
-        recipient_list = ["gadpeoeloro@gmail.com"]
-        send_mail(subject,message,email_from,recipient_list)
+        try:
+             print("hola")
+             mailresult = send_mail(subject, "Enviado desde: " + email_from + "\n\n" + message,settings.DEFAULT_FROM_EMAIL, [to], fail_silently=False)
+             print(mailresult)
+        except BadHeaderError:
+            return HttpResponse('Invalid header found.')
+
+       # recipient_list = ["gadpeoeloro@gmail.com"]
+       # send_mail(subject,message,email_from,recipient_list)
 
         return render(request, "gracias.html")
 
