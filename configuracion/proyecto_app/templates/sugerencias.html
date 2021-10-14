@@ -36,41 +36,36 @@
         <main>
             <!-- Types class Start -->
             <div class="banner-inner" style="border-bottom: 5px solid #ffff00;">
-                <div class="container">
-                    <br><span style="font-size:27px;" class=" wow fadeInUp" data-wow-delay=".2s">SUGERENCIAS</span><br>
-                </div>
+                
             </div>
             <div class="container">  
                 <link rel="stylesheet" href="{% static 'css/sugerencias.css' %}">
+                
                 <form id="contact" action="" method="post">{% csrf_token %}
                  
                   <h3><b>CONTÁCTANOS<b></h3>
-                  <fieldset>
-                    <label for="nombre">Nombre</label>
-                    <input name="nombre"  tabindex="1" required>
-                  </fieldset>
-                  <fieldset>
-                    <label for="apellido">Apellido</label>
-                    <input name="apellido" tabindex="2" required>
-                  </fieldset>
-                  <fieldset>
-                    <label for="celular">Celular</label>
-                    <textarea name="celular"  tabindex="3" required></textarea>
-                  </fieldset>
+                    <img class="colibri" src="{% static 'assets/img/logo/logo.png' %}">
                   <fieldset>
                     <label for="email">Email</label>
-                    <input name="email" placeholder="correo@example.com" type="email" tabindex="4" required>
+                    <input name="email" placeholder="correo@example.com" type="email" tabindex="1" required>
                   </fieldset>
                   <fieldset>
                     <label for="asunto">Asunto</label>
-                    <input name="asunto" type="tel" tabindex="5" required>
+                    <input name="asunto" type="tel" tabindex="2" required>
+                  </fieldset>
+                  <fieldset>
+                    <label for="celular">Celular</label>
+                    <input name="celular" type="celu"  tabindex="3" required>
                   </fieldset>
                   <fieldset>
                     <label for="comentario">Comentario</label>
-                    <textarea name="comentario"  tabindex="6" required></textarea>
+                    <textarea name="comentario"  tabindex="4" required></textarea>
                   </fieldset>
                   <fieldset>
-                    
+                    <label for="exampleFormControlFile1">Archivo adjunto</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                  </fieldset>
+                  <fieldset>
                     <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
                   </fieldset>
                 </form>  

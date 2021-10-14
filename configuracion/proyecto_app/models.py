@@ -67,10 +67,10 @@ class fauna(models.Model):
 
 
 class imagen_fauna(models.Model):
-    id_ima = models.IntegerField('id_fauna',primary_key = True)
+    id_imagen = models.IntegerField('id_imagen',primary_key = True)
     id_especie = models.ForeignKey(fauna, on_delete=models.CASCADE,null=True)
     autor = models.CharField('autor',max_length=200,null=True)
-    imagen = models.ImageField(upload_to='albums/images/', null=True, blank=True)
+    imagen = models.ImageField(upload_to='fauna', null=True, blank=True)
 
     class Meta:
         db_table = 'imagen_fauna'

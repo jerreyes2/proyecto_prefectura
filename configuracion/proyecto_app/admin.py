@@ -39,6 +39,13 @@ from .models import fauna
 admin.site.register(fauna, faunaAdmin)
 
 
+class imagenAdmin (admin.ModelAdmin):
+    list_display = ("id_imagen","id_especie","autor","imagen")
+    
+from .models import imagen_fauna
+admin.site.register(imagen_fauna, imagenAdmin)
+
+
 class faunaLocacionAdmin (admin.ModelAdmin):
     list_display = ("id_especie","id_locacion")
     list_filter = (
