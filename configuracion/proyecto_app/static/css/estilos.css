@@ -12,6 +12,7 @@
     min-width: 100%;
     min-height: 100%;
     z-index: -100;
+    background-color: #465d47;
     transform:translateX(-50%) trotateY(-50%);
 }
 #video {
@@ -28,6 +29,10 @@ video{
     width: 100%;
 }
 
+.menu-foto{
+    margin-left: 45px; 
+    margin-right: 45px;
+}
 
 .video-container img {
     min-height: 100%;
@@ -39,11 +44,13 @@ video{
     transform: translate(-50%,-50%);
     
 }
-.colibri{
-    width: 25%;
+.info{
+    width: 100%;
+    max-height: 25%;
     display: block;
     margin: auto;
 }
+
 
 form{
     text-align: center;
@@ -96,4 +103,34 @@ form{
 
 .redes_sociales ul li a:hover {
     background: #78b242;
+}
+
+@media screen and (max-width: 1024px){
+    .menu-foto{
+        margin-left: 35px; 
+        margin-right: 35px;
+    }
+
+    .clients-area .single-offers .offers-img img{
+        height: 7em; 
+    }
+
+    .clients-area .single-offers .offers-cap h3 a{
+        margin: 10px;
+    }
+    .section-padding30{
+        padding-top: 0px;
+        padding-bottom: 0px;
+    }
+    video{
+        width: auto;
+    }
+}
+
+@media screen and (max-width: 768px){
+    
+    .row {
+        display: block;
+    }
+
 }
