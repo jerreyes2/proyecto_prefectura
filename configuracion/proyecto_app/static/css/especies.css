@@ -451,8 +451,7 @@
       word-break: normal; }
   
   .pre-scrollable {
-    max-height: 340px;
-    overflow-y: scroll; }
+    max-height: 340px; }
   
   .container {
     width: 100%;
@@ -7326,7 +7325,6 @@
     bottom: 0;
     top: 0;
     left: 0;
-    overflow-y: scroll;
     z-index: 1001;
     background: rgba(0, 0, 0, 0.04);
     -moz-transition: all 0.5s ease;

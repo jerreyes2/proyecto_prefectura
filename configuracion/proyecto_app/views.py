@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from django.conf import settings
 from django.core.mail import send_mail,BadHeaderError,EmailMultiAlternatives
 from string import Template
+import base64
 
 #from django.template.loader import get_template
 
@@ -71,15 +72,22 @@ def galeriabioma(request):
 def sugerencias(request):
     if request.method == "POST":
         print(request.POST["asunto"])
+        print(request.POST["nombre"])
         print(request.POST["comentario"])
         print(request.POST["email"])
         print(request.POST["celular"])
+        doc = request.FILES
+        encoded_string = base64.b64encode(doc['file'].read())
+        imagen_b64='data:image/%s;base64,%s' % (format, encoded_string)
+        print(encoded_string)
        #print(request.POST["nombre"]) 
         #print(request.POST["apellido"])
+        nombre=request.POST["nombre"]
         subject =request.POST["asunto"]
         message =request.POST["comentario"]
         email_from = settings.EMAIL_HOST_USER
         to = request.POST["email"]
+        celular=request.POST["celular"]
         
         html_content = """
         <html xmlns="http://www.w3.org/1999/xhtml" xmlns:o="urn:schemas-microsoft-com:office:office" style="font-family:arial, 'helvetica neue', helvetica, sans-serif">
@@ -183,7 +191,7 @@ a[x-apple-data-detectors] {
                       <td align="center" style="padding:0;Margin:0;padding-bottom:10px"><h1 style="Margin:0;line-height:46px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:46px;font-style:normal;font-weight:bold;color:#333333">Nueva Sugerencia</h1></td> 
                      </tr> 
                      <tr> 
-                      <td align="center" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px"><strong>Nombre: Rene Romero<br>Celular: $celular<br>Correo: $correo</strong><br><br><br></p></td> 
+                      <td align="center" class="es-m-p0r es-m-p0l" style="Margin:0;padding-top:5px;padding-bottom:5px;padding-left:40px;padding-right:40px"><p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px"><strong>Nombre:$nombre<br>Celular: $celular<br>Correo: $correo</strong><br><br><br></p></td> 
                      </tr> 
                    </table></td> 
                  </tr> 
@@ -275,7 +283,7 @@ a[x-apple-data-detectors] {
  </body>
 </html>
         """
-        s = Template(html_content).safe_substitute(message=message)
+        s = Template(html_content).safe_substitute(message=message,celular=celular,correo=to,nombre=nombre)
        # print(html_content % (message))
 
         try:

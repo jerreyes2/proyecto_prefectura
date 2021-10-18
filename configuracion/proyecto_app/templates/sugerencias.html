@@ -33,41 +33,50 @@
         
             <!-- Header End -->
         </header>
-        <main>
-            <!-- Types class Start -->
-            <div class="banner-inner" style="border-bottom: 5px solid #ffff00;">
-                
+
+        <div class="banner-inner" style="border-bottom: 5px solid #ffff00;">
+        </div>
+
+        <body>
+            <div class="imagen">
+              <img src="{% static 'assets/img/gallery/fondosugerencia.png' %}">
             </div>
+          
             <div class="container">  
+                            
                 <link rel="stylesheet" href="{% static 'css/sugerencias.css' %}">
                 
-                <form id="contact" action="" method="post">{% csrf_token %}
+                <form id="contact" action="" method="post" enctype="multipart/form-data" >{% csrf_token %}
                  
                   <h3><b>CONTÁCTANOS<b></h3>
                   <fieldset>
+                    <label for="nombre">Nombres</label>
+                    <input name="nombre" type="nombre" tabindex="1" required>
+                  </fieldset>
+                  <fieldset>
                     <label for="email">Email</label>
-                    <input name="email" placeholder="correo@example.com" type="email" tabindex="1" required>
+                    <input name="email" placeholder="correo@example.com" type="email" tabindex="2" required>
                   </fieldset>
                   <fieldset>
                     <label for="asunto">Asunto</label>
-                    <input name="asunto" type="tel" tabindex="2" required>
+                    <input name="asunto" type="tel" tabindex="3" required>
                   </fieldset>
                   <fieldset>
                     <label for="celular">Celular</label>
-                    <input name="celular" type="celu"  tabindex="3" required>
+                    <input name="celular" type="celu"  tabindex="4" required>
                   </fieldset>
                   <fieldset>
                     <label for="comentario">Comentario</label>
-                    <textarea name="comentario"  tabindex="4" required></textarea>
+                    <textarea name="comentario"  tabindex="5" required></textarea>
                   </fieldset>
                   <fieldset>
                     <label for="exampleFormControlFile1">Archivo adjunto</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input name="file "type="file" class="form-control-file" id="file">
                   </fieldset>
                   <fieldset>
                     <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
                   </fieldset>
                 </form>  
               </div>
-        </main>
+            </body>
     {% endblock cuerpo %}

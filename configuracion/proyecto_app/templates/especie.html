@@ -69,7 +69,7 @@
 
 			{% for e in fauna_solo %}
 				{% if e.id == id_fauna %}
-					<img src="{% static 'assets/img/gallery/fondoplantas.jpeg' %}" autoplay loop style="position: fixed;"></img> 						
+					<img src="{% static 'assets/img/gallery/fondoplantas.jpeg' %}" autoplay loop style="position: absolute;"></img> 						
 					<div class="overlay"></div>
 						<div class="js-fullheight d-flex justify-content-center align-items-center">
 							<div class="col-md-8 text text-center">
@@ -77,7 +77,6 @@
 								<div class="desc"> 
 									<h1 class="mb-4" style="color: aliceblue;    font-size: 55px;  font-weight: bold;" >{{e.nom_especie}}</h1>
 									<p class="mb-4">{{e.descripcion}}</p>
-									<p><a href="#fichatecnica" class="btn-custom">Ficha técnica <span class="ion-ios-arrow-forward"></span></a></p>
 								</div>
 							</div>
 						</div> 
