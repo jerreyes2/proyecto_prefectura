@@ -92,53 +92,6 @@ class fauna_biomas(models.Model):
 
 
 """
-class familia(models.Model):
-    #id_taxon--
-    id_taxon = models.IntegerField(default=0)
-    #tip_taxon--
-    tipo_flor = models.CharField(max_length=10, default='Orquidea', verbose_name='tipo_flor')
-    #nom_cientifico--
-    nombre_familia = models.CharField(max_length=10, verbose_name='nombre_familia')
-    #nom_spanish
-    nom_spanish=models.CharField(max_length=10, verbose_name='nom_spanish')
-    #nom_ingles
-    nom_ingles=models.CharField(max_length=10, verbose_name='nom_ingles')
-    #de_caracteristicas
-    de_caracteristicas=models.CharField(max_length=10, verbose_name='de_caracteristicas')
-    #ubi_taxon
-    ubi_taxon=models.CharField(max_length=10, verbose_name='ubi_taxon')
-    #ima_animal
-    #ima_animal= models.ImageField(upload_to='animal/%Y/%m/%d', null=True, blank=True)
-    #migracion_aves
-    migracion_aves=models.CharField(max_length=10, verbose_name='migracion_aves')
-    #ced_persona
-    ced_persona=models.CharField(max_length=10, verbose_name='ced_persona')
-    #id_uicn
-    id_uicn = models.IntegerField(default=0)
-    #id_distribucion
-    id_distribucion = models.IntegerField(default=0)
-    #id_registro
-    id_registro = models.IntegerField(default=0)
-    #id_estado_conservacion
-    id_registro = models.IntegerField(default=0)
-    #id_nicho_trofico
-    id_registro = models.IntegerField(default=0)
-    #id_nicho_trofico
-    id_registro = models.IntegerField(default=0)
-    #id_amenaza
-    id_amenaza = models.IntegerField(default=0)
-    #id_endemisnmo
-    id_registro = models.IntegerField(default=0)
-    #etimologia--
-    etimologia = models.CharField(max_length=10, verbose_name='etimologia')
-    #diagnosis--
-    diagnosis = models.CharField(max_length=10, verbose_name='diagnosis')
-    #comenatarios_taxonomicos--
-    comenatarios_taxonomicos = models.CharField(max_length=10, verbose_name='comenatarios_taxonomicos')
-    #distribucion_composicion--
-    distribucion_composicion = models.CharField(max_length=10, verbose_name='distribucion_composicion')
-
-
 class clases(models.Model):
     id_clase = models.IntegerField('id_clase',primary_key = True)
     nom_clase = models.CharField('nom_clase',max_length=200,null=True)
@@ -203,7 +156,7 @@ class provincias(models.Model):
     nom_provincia = models.CharField("nomb_provincia",max_length=30,null=True)
 
     class Meta:
-        db_table = 'provincias'
+        db_table = 'provincias' 
 
 class biomas(models.Model):
     id_bioma = models.IntegerField('id_bioma',primary_key = True)
@@ -374,6 +327,8 @@ class biomas_ecosistemas(models.Model):
 #07/10
 
 
+
+
 # Erreyes 2
 
 class estado_conservacion(models.Model):
@@ -532,18 +487,27 @@ class registros(models.Model):
     class Meta:
         db_table = 'registros'
 
+class parroquias(models.Model):
+    id_parroquias = models.IntegerField('id_parroquias',primary_key = True) 
+    nom_parroquia = models.CharField('nom_parroquia',max_length=100,null=True)
+    id_canton = models.ForeignKey(cantones,on_delete= models.CASCADE, null=True)
+    id_provincia = models.ForeignKey(provincias,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'parroquias'
+
 class locaciones(models.Model):
     id_locacion = models.IntegerField('id_locacion',primary_key = True)
     nom_locacion = models.CharField('nom_locacion',max_length=100,null=True)
     sigla_locacion = models.CharField('sigla_locacion',max_length=50,null=True)
     alt_locacion = models.FloatField(null=True)
-    #id_parroquia = models.ForeignKey(parroquias, on_delete=models.CASCADE,null=True)
+    id_parroquia = models.ForeignKey(parroquias, on_delete=models.CASCADE,null=True)
     id_canton = models.ForeignKey(cantones, on_delete=models.CASCADE,null=True)
     id_provincia = models.ForeignKey(provincias, on_delete=models.CASCADE,null=True)
     coordenadas = models.CharField('nom_endemismo',max_length=100,null=True)
     id_bioma = models.ForeignKey(biomas, on_delete=models.CASCADE,null=True)
-    latitud = models.FloatField(null=True)
-    longitud = models.FloatField(null=True)
+    latitud_locacion = models.FloatField(null=True)
+    longitud_locacion = models.FloatField(null=True)
     
     class Meta:
         db_table = 'locaciones'
@@ -846,15 +810,6 @@ class areanatural_geomorfologia(models.Model):
     class Meta:
         db_table = 'areanatural_geomorfologia'
 
-class parroquias(models.Model):
-    id_parroquias = models.IntegerField('id_parroquias',primary_key = True) 
-    nom_parroquia = models.CharField('nom_parroquia',max_length=100,null=True)
-    id_canton = models.ForeignKey(cantones,on_delete= models.CASCADE, null=True)
-    id_provincia = models.ForeignKey(provincias,on_delete= models.CASCADE, null=True)
-    
-    class Meta:
-        db_table = 'parroquias'
-
 class areanatural_locacion(models.Model):
     id_areanatural = models.ForeignKey(area_naturales_conservacion,on_delete= models.CASCADE, null=True)
     id_canton = models.ForeignKey(cantones,on_delete= models.CASCADE, null=True)
@@ -990,5 +945,170 @@ class parroquias_rios(models.Model):
 
     class Meta:
         db_table = 'parroquias_rios'
+
+class imagenes_biomas(models.Model):
+    id_imagenbioma = models.IntegerField('id_imagenbioma',primary_key = True)
+    id_bioma = models.ForeignKey(biomas,on_delete= models.CASCADE, null=True)
+    url_imagen = models.CharField('url_imagen',max_length=100,null=True)
+    autor = models.CharField('autor',max_length=100,null=True)
+
+    class Meta:
+        db_table = 'imagenes_biomas'
+#----------------------
+
+class personas(models.Model):
+    id_persona = models.IntegerField('id_persona',primary_key = True)
+    nom_persona = models.CharField('nom_persona',max_length=100,null=True)
+    apre_persona = models.CharField('apre_persona',max_length=100,null=True)
+    tipo = models.CharField('tipo',max_length=100,null=True)
+
+    class Meta:
+        db_table = 'personas'
+
+class regiones_naturalez(models.Model):
+    id_zona = models.IntegerField('id_zona',primary_key = True)
+    nom_zona = models.CharField('nom_zona',max_length=100,null=True)
+    
+    class Meta:
+        db_table = 'regiones_naturalez'
+
+class relieves(models.Model):
+    id_relieve = models.IntegerField('id_relieve',primary_key = True)
+    ubicacion_relieve = models.CharField('ubicacion_relieve',max_length=100,null=True)
+    longitud_min = models.CharField('longitud_min',max_length=100,null=True)
+    longitud_max = models.CharField('longitud_max',max_length=100,null=True)
+    territorio_relieve = models.CharField('territorio_relieve',max_length=100,null=True)
+
+    class Meta:
+        db_table = 'relieves'
+
+class servicios_ecosistemicos(models.Model):
+    id_servicioecosistemico = models.IntegerField('id_servicioecosistemico',primary_key = True)
+    nom_servicioecosistemico = models.CharField('nom_servicioecosistemico',max_length=100,null=True)
+    hec_servicioecosistemico = models.FloatField(null=True)
+    por_servicioecosistemico = models.FloatField(null=True)
+    
+    class Meta:
+        db_table = 'servicios_ecosistemicos'
+
+class sitios_muestreo_bioecologia(models.Model):
+    id_sitio = models.IntegerField('id_sitio',primary_key = True)
+    id_canton = models.ForeignKey(cantones,on_delete= models.CASCADE, null=True)
+    id_locacion = models.ForeignKey(locaciones,on_delete= models.CASCADE, null=True)
+    bioma = models.CharField('bioma',max_length=100,null=True)
+    coordenadas = models.CharField('coordenadas',max_length=100,null=True)
+    
+    class Meta:
+        db_table = 'sitios_muestreo_bioecologia'
+
+class subfamilias(models.Model):
+    id_subfamilia = models.IntegerField('id_subfamilia',primary_key = True)
+    nom_subfamilia =  models.CharField('nom_subfamilia',max_length=100,null=True)
+    tipo =  models.CharField('tipo',max_length=100,null=True)
+    id_familia = models.ForeignKey(familias,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'subfamilias'
+
+class tribu(models.Model):
+    id_tribu = models.IntegerField('id_tribu',primary_key = True)
+    nom_tribu =  models.CharField('nom_tribu',max_length=100,null=True)
+    id_subfamilia =  models.ForeignKey(subfamilias,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'tribu'
+
+class subtribu(models.Model):
+    id_subtribu = models.IntegerField('id_subtribu',primary_key = True)
+    nom_subtribu =  models.CharField('nom_subtribu',max_length=100,null=True)
+    id_tribu =  models.ForeignKey(tribu,on_delete= models.CASCADE, null=True)
+    
+    class Meta:
+        db_table = 'subtribu'
+
+class telemetria_pericos(models.Model):
+    id_telemetria = models.IntegerField('id_telemetria',primary_key = True)
+    num_pericos =  models.IntegerField('num_pericos',null=True)
+    cant_telemetria =  models.IntegerField('cant_telemetria',null=True)
+    estado_grupo_perico =  models.CharField('estado_grupo_perico',max_length=100,null=True)
+    distancia_vuelo_max =  models.CharField('distancia_vuelo_max',max_length=100,null=True)
+    distancia_vuelo_promedio =  models.CharField('distancia_vuelo_promedio',max_length=100,null=True)
+    tiempo_estancia_bosques_max =  models.CharField('tiempo_estancia_bosques_max',max_length=100,null=True)
+    tiempo_estancia_bosques_pro =  models.CharField('tiempo_estancia_bosques_pro',max_length=100,null=True)
+    tiempo_estancia_pastos_max =  models.CharField('tiempo_estancia_pastos_max',max_length=100,null=True)
+    tiempo_estancia_pastos_pro =  models.CharField('tiempo_estancia_pastos_pro',max_length=100,null=True)
+    habitat_bosques =  models.CharField('habitat_bosques',max_length=100,null=True)
+    habitat_pasto_arbolado =  models.CharField('habitat_pasto_arbolado',max_length=100,null=True)
+    habitat_area_vida_semanal =  models.CharField('habitat_area_vida_semanal',max_length=100,null=True)
+    habitat_area_vida_diaria =  models.CharField('habitat_area_vida_diaria',max_length=100,null=True)
+    
+    class Meta:
+        db_table = 'telemetria_pericos'
+    
+class unidades_fisiotopicos(models.Model):
+    id_areanatural = models.ForeignKey(area_naturales_conservacion,on_delete= models.CASCADE, null=True)
+    id_fisiotopico = models.ForeignKey(fisiotopico,on_delete= models.CASCADE, null=True)
+    hectareas =  models.FloatField(null=True)
+    porcentaje =  models.FloatField(null=True)
+    
+    class Meta:
+        db_table = 'unidades_fisiotopicos'
+
+class users(models.Model):
+    id_user = models.IntegerField('id_user',primary_key = True)
+    email_user = models.CharField('email_user',max_length=100,null=True)
+    image_user =  models.CharField('image_user',max_length=100,null=True)
+    password_user =   models.CharField('password_user',max_length=100,null=True)
+    estado_user =  models.CharField('estado_user',max_length=100,null=True)
+    creat_at_user = models.DateTimeField(null=True)
+    modif_at_user = models.DateTimeField(null=True)
+
+    class Meta:
+        db_table = 'users'
+
+class usuarios_app(models.Model):
+    idusuario = models.IntegerField('idusuario',primary_key = True)
+    username = models.CharField('username',max_length=100,null=True)
+    email =  models.CharField('email',max_length=100,null=True)
+    password =  models.CharField('password',max_length=100,null=True)
+
+    class Meta:
+        db_table = 'usuarios_app'
+
+class variables_climaticas(models.Model):
+    id_variable = models.IntegerField('id_variable',primary_key = True)
+    codigo = models.CharField('codigo',max_length=100,null=True)
+    variable =  models.CharField('variable',max_length=100,null=True)
+    porcentaje =  models.FloatField(null=True)
+    importancia = models.FloatField(null=True)
+
+    class Meta:
+        db_table = 'variables_climaticas'
+    
+class zonas_corredor_ecologico(models.Model):
+    id_zona = models.IntegerField('id_zona',primary_key = True)
+    nombre_zona = models.CharField('nombre_zona',max_length=100,null=True)
+    hectarias_zona =  models.FloatField(null=True)
+    porcentaje_zona =  models.FloatField(null=True)
+
+    class Meta:
+        db_table = 'zonas_corredor_ecologico'
+
+class zonas_vida(models.Model):
+    id_zona = models.IntegerField('id_zona',primary_key = True)
+    nombre_zona = models.CharField('nombre_zona',max_length=100,null=True)
+
+    class Meta:
+        db_table = 'zonas_vida'
+
+class zonificacion_microcuenca_rio_ca(models.Model):
+    #id_macrozonas = models.IntegerField('id_macrozonas',primary_key = True)
+    nom_macrozonas = models.CharField('nom_macrozonas',max_length=100,null=True)
+    recomendacion_de_uso = models.CharField('recomendacion_de_uso',max_length=100,null=True)
+    hectara = models.FloatField(null=True)
+    porcentaje = models.FloatField(null=True)
+
+    class Meta:
+        db_table = 'zonificacion_microcuenca_rio_ca'
 
 """

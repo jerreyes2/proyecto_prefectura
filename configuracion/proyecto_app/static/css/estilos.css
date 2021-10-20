@@ -113,6 +113,24 @@ form{
     margin: 75px;
 }
 
+@media screen and (min-width: 1440px) and (max-width: 2560px){
+    .section-tittle02 h2{
+        font-size: 110px;
+    }
+    h2.macro-in {
+        font-size: 65px;
+    }
+}
+
+@media screen and (max-width: 1440px){
+    .section-tittle02 h2{
+        font-size: 75px;
+    }
+    h2.macro-in {
+        font-size: 50px;
+    }
+}
+
 @media screen and (max-width: 1024px){
     .menu-foto{
         margin-left: 35px; 
@@ -133,6 +151,13 @@ form{
     video{
         width: auto;
     }
+    .section-tittle02 h2{
+        font-size: 75px;
+    }
+    h2.macro-in {
+        font-size: 50px;
+    }
+    
 }
 
 @media screen and (max-width: 768px){
@@ -155,4 +180,20 @@ form{
         color: #000;
     }
 
+    .section-tittle02 h2{
+        font-size: 55px;
+    }
+    h2.macro-in {
+        font-size: 40px;
+    }
+}
+
+@media screen and (max-width: 425px){
+    
+    .section-tittle02 h2{
+        font-size: 45px;
+    }
+    h2.macro-in {
+        font-size: 30px;
+    }
 }
