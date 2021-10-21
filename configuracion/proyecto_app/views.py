@@ -77,11 +77,10 @@ def sugerencias(request):
         print(request.POST["email"])
         print(request.POST["celular"])
         doc = request.FILES
-        encoded_string = base64.b64encode(doc['file'].read())
-        imagen_b64='data:image/%s;base64,%s' % (format, encoded_string)
-        print(encoded_string)
-       #print(request.POST["nombre"]) 
-        #print(request.POST["apellido"])
+        print(doc['file'].name)
+        #encoded_string = base64.b64encode(doc['file'].read())
+        #imagen_b64='data:image/%s;base64,%s' % (format, encoded_string)
+        #print(encoded_string)
         nombre=request.POST["nombre"]
         subject =request.POST["asunto"]
         message =request.POST["comentario"]
@@ -290,6 +289,7 @@ a[x-apple-data-detectors] {
              print("hola")
              msg = EmailMultiAlternatives(subject, s , email_from, [to])
              msg.attach_alternative(s, "text/html")
+             msg.attach(doc['file'].name,doc['file'].read(), doc['file'].content_type)
              msg.send()
            #  mailresult = send_mail(subject, "Enviado desde: " + email_from + "\n\n" + message,settings.DEFAULT_FROM_EMAIL, [to], fail_silently=False)
              #print(mailresult)

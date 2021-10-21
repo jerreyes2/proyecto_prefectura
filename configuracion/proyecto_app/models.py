@@ -803,8 +803,8 @@ class areanatural_geologia(models.Model):
 
 class areanatural_geomorfologia(models.Model):
     id_areanatural = models.ForeignKey(area_naturales_conservacion,on_delete= models.CASCADE, null=True)
-    id_geologia = models.ForeignKey(geologias,on_delete= models.CASCADE, null=True)
-    hec_geologia = models.FloatField(null=True)
+    id_geomorfologia = models.ForeignKey(geologias,on_delete= models.CASCADE, null=True)
+    hec_geomorfologia = models.FloatField(null=True)
     porcentaje = models.FloatField(null=True)
 
     class Meta:
@@ -870,7 +870,7 @@ class especie_gremioalimentario(models.Model):
 class estado_conservacion_cuerpos_agu(models.Model):
     #id_rio = models.IntegerField('id_rio',primary_key = True) 
     codigo = models.CharField('codigo',max_length=100,null=True)
-    #BMWP_Col = models.CharField('BMWP_Col',max_length=100,null=True)
+    #bmwp_Col = models.CharField('BMWP_Col',max_length=100,null=True)
     calidad_agua = models.CharField('calidad_agua',max_length=100,null=True)
 
     class Meta:

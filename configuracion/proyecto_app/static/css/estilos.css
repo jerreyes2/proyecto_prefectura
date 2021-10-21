@@ -19,6 +19,23 @@ ul.slicknav_nav li a{
     background-color: #465d47;
     transform:translateX(-50%) trotateY(-50%);
 }
+
+.foto-container {   
+    position: relative;
+    background-color: #465d47;
+}
+.foto-container img{  
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-0%);
+}
+
+div.video-history-cap.wow.fadeInRight > p {
+    color: #fff;
+}
+
+
 #video {
     position: absolute;
     left: 0;
@@ -45,9 +62,9 @@ video{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
-    
+    transform: translate(-50%,-50%); 
 }
+
 .info{
     width: 100%;
     max-height: 25%;
