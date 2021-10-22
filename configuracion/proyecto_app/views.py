@@ -58,6 +58,9 @@ def familia(request):
 def subfamilia(request):
     return render(request, "subFamilia.html")
 
+def contacto(request):
+  return render(request, "contacto.html")
+
 def galeria(request, id_fauna_biomas, tipo):
     especie_bioma = fauna_biomas.objects.filter(id_bioma_id = id_fauna_biomas)
     #fauna_s = fauna.objects.filter(tipo = "ave")    

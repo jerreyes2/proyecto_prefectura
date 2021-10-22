@@ -85,6 +85,7 @@ form{
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    z-index: 1;
 }
 
 .redes_sociales ul {
@@ -130,12 +131,98 @@ form{
     margin: 75px;
 }
 
+
+.contact {
+    position: relative;
+    width: 100%;
+    padding-top: 45px;
+}
+
+.contact .contact-info {
+    display: flex;
+    width: 100%;
+    padding: 35px 30px 10px 30px;
+    border-radius: 5px;
+    background: #202C45;
+}
+
+.contact .contact-info h2 {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 30px;
+}
+
+.contact .contact-info-item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+
+.contact .contact-info-icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    border-radius: 50px;
+}
+
+.contact .contact-info-icon i {
+    margin: 0;
+    color: #202C45;
+    font-size: 16px;
+}
+
+.contact .contact-info-text {
+    padding-left: 20px;
+}
+
+.contact .contact-info-text h3 {
+    margin: 0 0 5px 0;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.contact .contact-info-text p {
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 500;
+}
+.centrar-items{
+    width:50%;
+    margin:auto;
+    padding: 10%;
+}
+
+.centrar{
+    width:50%;
+    margin:auto;
+}
+
+.map{
+    border:0;
+    width:100%;
+    height:400px;
+}
+
 @media screen and (min-width: 1440px) and (max-width: 2560px){
     .section-tittle02 h2{
         font-size: 110px;
     }
     h2.macro-in {
         font-size: 65px;
+    }
+    .foto-container{
+        width: 100%;
+    }
+    .foto-container img {
+        width: 100%;
     }
 }
 
@@ -174,7 +261,10 @@ form{
     h2.macro-in {
         font-size: 50px;
     }
-    
+    #navigation li a{
+        font-size: 15px;
+    }
+
 }
 
 @media screen and (max-width: 768px){
@@ -203,6 +293,10 @@ form{
     h2.macro-in {
         font-size: 40px;
     }
+
+    .foto-container img{
+        height: 750px;
+    }
 }
 
 @media screen and (max-width: 425px){
@@ -213,4 +307,13 @@ form{
     h2.macro-in {
         font-size: 30px;
     }
+    .contact .contact-info{
+        display: block;
+    }
+
+    .centrar-items{
+        width: 100%;
+    }
 }
+
+

@@ -90,7 +90,8 @@ from .models import familias
 admin.site.register(familias, familiasAdmin)
 
 class abundanciasAdmin (admin.ModelAdmin):
-    list_display = ("id_abundancia","tax_abundancia","num_abundancia","ran_abundancia","id_familia","id_orden","id_clase")
+    list_display = ("id_abundancia","tax_abundancia","num_abundancia","ran_abundancia","id_familia",
+    "id_orden","id_clase")
   
 from .models import abundancias
 admin.site.register(abundancias, abundanciasAdmin)
@@ -108,7 +109,8 @@ from .models import provincias
 admin.site.register(provincias, provinciasAdmin)
 
 class biomasAdmin (admin.ModelAdmin):
-    list_display = ("id_bioma","nom_bioma","sigla_bioma","des_altitudinal_bioma","has_altitudinal_bioma","remanencia","ext_bioma","id_provincia")
+    list_display = ("id_bioma","nom_bioma","sigla_bioma","des_altitudinal_bioma","has_altitudinal_bioma",
+    "remanencia","ext_bioma","id_provincia")
   
 from .models import biomas
 admin.site.register(biomas, biomasAdmin)
@@ -124,6 +126,148 @@ class abundancias_ecosistemasAdmin (admin.ModelAdmin):
   
 from .models import abundancias_ecosistemas
 admin.site.register(abundancias_ecosistemas, abundancias_ecosistemasAdmin)
+
+class unidades_hidrograficasAdmin (admin.ModelAdmin):
+    list_display = ("id_uh","nom_uh","cod_uh"," riqueza_uh","abundancia_uh")
+  
+from .models import unidades_hidrograficas
+admin.site.register(unidades_hidrograficas, unidades_hidrograficasAdmin)
+
+class abundancias_uhAdmin (admin.ModelAdmin):
+    list_display = ("id_abundancia","id_uh")
+  
+from .models import abundancias_uh
+admin.site.register(abundancias_uh, abundancias_uhAdmin)
+
+class actividadesAdmin (admin.ModelAdmin):
+    list_display = (" id_actividad","nom_actividad","sigla_actividad")
+  
+from .models import actividades
+admin.site.register(actividades, actividadesAdmin)
+
+class riosAdmin (admin.ModelAdmin):
+    list_display = ("id_rio","nom_rio","categoria")
+  
+from .models import rios
+admin.site.register(rios, riosAdmin)
+
+class bosquesAdmin (admin.ModelAdmin):
+    list_display = ("id_bosque","nom_bosque","pro_administrador_bosque","localizacion_area","micro_cuencas",
+    "reg_oficial_bosque","hec_bosque","vegetacion_remanente","altitud_max","altitud_min")
+  
+from .models import bosques
+admin.site.register(bosques, bosquesAdmin)
+
+class bosques_riosAdmin (admin.ModelAdmin):
+    list_display = ("id_rio","id_bosque")
+  
+from .models import bosques_rios
+admin.site.register(bosques_rios, bosques_riosAdmin)
+
+class bosques_arbolesAdmin (admin.ModelAdmin):
+    list_display = ("id_arbol","nom_arbol","esp_arbol","alt_arbol","tip_arbol","id_bosque")
+  
+from .models import arboles
+admin.site.register(arboles, arbolesAdmin)
+
+class areasAdmin (admin.ModelAdmin):
+    list_display = ("id_area","cat_area","nom_area","fe_creacion","acu_resolucion_area","aut_competente_area",
+     "superfici_area","tipo")
+  
+from .models areas
+admin.site.register(areas, areasAdmin)
+
+class areas_naturales_corredor_ecologAdmin (admin.ModelAdmin):
+    list_display = ("id_area_corredor","asp_min_cap_inst","analisis","observaciones")
+  
+from .models areas_naturales_corredor_ecolog
+admin.site.register(areas_naturales_corredor_ecolog, areas_naturales_corredor_ecologAdmin)
+
+class cantonesAdmin (admin.ModelAdmin):
+    list_display = ("id_canton","nom_canton","id_provincia")
+  
+from .models cantones
+admin.site.register(cantones, cantonesAdmin)
+
+class biomas_cantonesAdmin (admin.ModelAdmin):
+    list_display = ("id_bioma","id_canton")
+  
+from .models biomas_cantones
+admin.site.register(biomas_cantones, biomas_cantonesAdmin)
+
+class biomas_ecosistemasAdmin (admin.ModelAdmin):
+    list_display = ("id_bioma","id_ecosistema")
+  
+from .models biomas_ecosistemas
+admin.site.register(biomas_ecosistemas, biomas_ecosistemasAdmin)
+
+class estado_conservacionAdmin (admin.ModelAdmin):
+    list_display = ("id_estado_conservacion","categoria","sigla","descripcion")
+  
+from .models estado_conservacion
+admin.site.register(estado_conservacion, estado_conservacionAdmin)
+
+class clasificacionAdmin (admin.ModelAdmin):
+    list_display = ("id_clasificacion","nom_clasificacion","id_estado_conservacion")
+  
+from .models clasificacion
+admin.site.register(clasificacion, clasificacionAdmin)
+
+class distribucionesAdmin (admin.ModelAdmin):
+    list_display = ("id_distribucion","nom_distribucion","sigla_distribucion")
+  
+from .models distribuciones
+admin.site.register(distribuciones, distribucionesAdmin)
+
+class nichotroficoAdmin (admin.ModelAdmin):
+    list_display = ("id_nicho_trofico","nom_nicho","sigla_nicho","descripcion")
+  
+from .models nichotrofico
+admin.site.register(nichotrofico, nichotroficoAdmin)
+
+class personasAdmin (admin.ModelAdmin):
+    list_display = ("id_persona","nom_persona","ape_pesona","tipo")
+  
+from .models personas
+admin.site.register(personas, personasAdmin)
+
+class ordenesAdmin (admin.ModelAdmin):
+    list_display = ("id_orden","nom_orden","tipo","id_clase")
+  
+from .models ordenes
+admin.site.register(ordenes, ordenesAdmin)
+
+class migracion_avesAdmin (admin.ModelAdmin):
+    list_display = ("id_migracion","nom_migracion","sigla")
+  
+from .models migracion_aves
+admin.site.register(migracion_aves, migracion_avesAdmin)
+
+class especiesAdmin (admin.ModelAdmin):
+    list_display = ("id_especie","nom_especie","tipo","rango_altitudinal","ubicacion","descripcion","nom_cientifico",
+    "nom_ingles","id_estado_conservacion","nacional","id_nicho_trofico","id_persona","id_familia","id_orden",
+    "id_clase","anio_descubrimiento","id_migracion")
+  
+from .models especies
+admin.site.register(especies, especiesAdmin)
+
+class canton_areaAdmin (admin.ModelAdmin):
+    list_display = ("id_area","id_canton")
+  
+from .models canton_area
+admin.site.register(canton_area, canton_areaAdmin)
+
+class canton_bosqueAdmin (admin.ModelAdmin):
+    list_display = ("id_bosque","id_canton")
+  
+from .models canton_bosque
+admin.site.register(canton_bosque, canton_areaAdmin)
+
+class canton_ecosistemaAdmin (admin.ModelAdmin):
+    list_display = ("id_canton","id_ecosistema")
+  
+from .models canton_ecosistema
+admin.site.register(canton_ecosistema, canton_ecosistemaAdmin)
 
 
 

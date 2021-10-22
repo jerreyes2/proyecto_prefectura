@@ -30,43 +30,39 @@
         </header>
 
         <div class="banner-inner" style="border-bottom: 5px solid #ffff00;"></div>
-        
-        <body>
             
-            <div id="padre">
-                <img src="{% static 'assets/img/gallery/correo/fondo_nuevas_especies.png' %}" alt="" height="600" width="900" >
-            
-                <div id="hijo">
-                    <div class="container">            
-                        <link rel="stylesheet" href="{% static 'css/sugerencias.css' %}">
-                            <form id="contact" action="" method="post" enctype="multipart/form-data" >{% csrf_token %}
-                            
-                            <h1><b>CONTÁCTANOS<b></h3>
-                                <fieldset>
-                                    <label for="nombre">Nombres</label>
-                                    <input name="nombre" type="nombre" tabindex="1" required>
-                                
-                                    <label for="email">Email</label>
-                                    <input name="email" placeholder="correo@example.com" type="email" tabindex="2" required>
-                                
-                                    <label for="asunto">Asunto</label>
-                                    <input name="asunto" type="tel" tabindex="3" required>
-                                
-                                    <label for="celular">Celular</label>
-                                    <input name="celular" type="celu"  tabindex="4" required>
-                                
-                                    <label for="comentario">Comentario</label>
-                                    <textarea name="comentario"  tabindex="5" required></textarea>
-                                
-                                    <label for="exampleFormControlFile1">Archivo adjunto</label>
-                                    <input name="file "type="file" class="form-control-file" id="file">
-                                </fieldset>
-                                <fieldset>
-                                    <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
-                                </fieldset>
-                            </form> 
-                    </div>
+        <div>
+            <div class="videos">
+                <img src="{% static 'assets/img/gallery/fondo_nuevas_especies.png' %}" autoplay loop></img> 
+            </div> 
+                <div class="container">            
+                    <link rel="stylesheet" href="{% static 'css/sugerencias.css' %}">
+                    <form id="contact" action="" method="post" enctype="multipart/form-data" >{% csrf_token %}
+                    
+                    <h1><b>CONTÁCTANOS<b></h3>
+                        <fieldset>
+                            <label for="nombre">Nombres</label>
+                            <input name="nombre" type="nombre" tabindex="1" required>
+                        
+                            <label for="email">Email</label>
+                            <input name="email" placeholder="correo@example.com" type="email" tabindex="2" required>
+                        
+                            <label for="asunto">Asunto</label>
+                            <input name="asunto" type="tel" tabindex="3" required>
+                        
+                            <label for="celular">Celular</label>
+                            <input name="celular" type="celu"  tabindex="4" required>
+                        
+                            <label for="comentario">Comentario</label>
+                            <textarea name="comentario"  tabindex="5" required></textarea>
+                        
+                            <label for="exampleFormControlFile1">Archivo adjunto</label>
+                            <input name="file "type="file" class="form-control-file" id="file">
+                        </fieldset>
+                        <fieldset>
+                            <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
+                        </fieldset>
+                    </form> 
                 </div>
-            </div>
-        </body>    
+        </div>    
     {% endblock cuerpo %}

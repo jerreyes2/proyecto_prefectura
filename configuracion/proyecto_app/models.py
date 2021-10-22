@@ -47,7 +47,6 @@ class estadoconservacion(models.Model):
         db_table = 'estadoconservacion'
 
 
-
 class fauna(models.Model):
     nom_especie = models.CharField('nom_especie',max_length=200,null=True)
     nom_cientifico = models.CharField('nom_cientifico',max_length=200,null=True)

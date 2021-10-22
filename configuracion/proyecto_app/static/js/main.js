@@ -183,7 +183,7 @@
 /* 7.  Custom Sticky Menu  */
     $(window).on('scroll', function () {
       var scroll = $(window).scrollTop();
-      if (scroll < 245) {
+      if (scroll < 150) {
         $(".header-sticky").removeClass("sticky-bar");
       } else {
         $(".header-sticky").addClass("sticky-bar");
@@ -192,7 +192,7 @@
 
     $(window).on('scroll', function () {
       var scroll = $(window).scrollTop();
-      if (scroll < 245) {
+      if (scroll < 150) {
           $(".header-sticky").removeClass("sticky");
       } else {
           $(".header-sticky").addClass("sticky");
@@ -204,8 +204,8 @@
 /* 8. sildeBar scroll */
     $.scrollUp({
       scrollName: 'scrollUp', // Element ID
-      topDistance: '300', // Distance from top before showing element (px)
-      topSpeed: 300, // Speed back to top (ms)
+      topDistance: '150', // Distance from top before showing element (px)
+      topSpeed: 150, // Speed back to top (ms)
       animation: 'fade', // Fade, slide, none
       animationInSpeed: 200, // Animation in speed (ms)
       animationOutSpeed: 200, // Animation out speed (ms)

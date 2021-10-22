@@ -13,31 +13,66 @@
 	text-rendering:optimizeLegibility;
 }
 
-body {
-	font-family:"Open Sans", Helvetica, Arial, sans-serif;
-	font-weight:00;
-	font-size: 12px;
-	line-height:30px;
-	color:#777;
-	background:rgb(248, 249, 250);
+.videos img {
+    max-width:900px;
+	width: 80%;
+    object-fit: contain;
+    position: relative;
+}
+
+.videos {
+    position: relative;
+    overflow: hidden;
+    z-index: -100;
 }
 
 .container {
-	
-	position: relative;
-	background:rgb(7, 129, 250);
+	max-width:600px;
+	width:750%;
+	position:absolute;
+	right: 100px;
+	top: 100px;
+}
+/*
+.videos {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    background-color: #465d47;
+    transform:translateX(-50%) trotateY(-50%);
 }
 
-#hijo {
+.videos img {
+    min-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); 
 }
 
+.container {
+	max-width:600px;
+	width:750%;
+	/*position:absolute;
+	right: 100px;
+	top: 100px;
+}
+*/
 
 #contact input[type="nombre"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="celu"], #contact textarea, #contact button[type="submit"] { font:700 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
 
 #contact {
-	background:#F9F9F9;
+	background:#ffffff;
 	padding:10px;
-	margin:50px 0;
+	margin:20px 0;
 }
 
 #contact h1 {
