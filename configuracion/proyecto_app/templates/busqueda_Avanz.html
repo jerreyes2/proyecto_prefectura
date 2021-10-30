@@ -1,0 +1,64 @@
+{% extends 'inicio.html' %}
+    {% block titulo %} Búsqueda Avanzadas {% endblock titulo %}
+    {% block cuerpo %}
+    {% load static %}
+        <header>
+            <!-- Header Start -->
+        <div class="header-area header-sticky">
+                <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                    <!-- Logo -->
+                    <div class="logo">
+                        <a href="{% url 'inicio' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                    </div>
+                    <!-- Main-menu -->
+                    <div style = "width: 60%;" class="main-menu d-none d-lg-block">
+                        <nav>
+                            <ul id="navigation">                                                                                                                               
+                                <li><a style = "color: #000;" href="{% url 'inicio' %}">Bio-Oro</a></li>
+                                <li><a style = "color: #000;" href="{% url 'sugerencias' %}">Sugerencias</a></li>
+                            </ul>
+                        </nav>
+                    </div>          
+                    <div class="col-12">
+                        <div class="mobile_menu d-block d-lg-none"></div>
+                    </div>
+                </div>
+        </div>
+            <!-- Header End -->
+        </header>
+        <body>
+            <link rel="stylesheet" href="{% static 'css/busqueda.css' %}">
+            <form action="">
+                <div class="col-lg-3 col-md-6 col-sm-6 menu-foto" ><!--style="margin-left: 45px; margin-right: 45px;"-->
+                    <div class="single-offers mb-50 wow fadeInUp" data-wow-delay=".6s" style="padding-left: 0px;">
+                        <div class="offers-img">
+                            <img src="{%  static 'assets/img/inicio/Palmeras_logo.png'%}" alt="">
+                        </div>
+                        <div class="offers-cap">
+                            <span style="margin-left: 50px;">Especímenes</span>
+                            <a href="{% url 'areasnat'%}"><i class="fas fa-arrow-up flecha"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <h1>Búsqueda de Especies</h1>
+                <p>Puede combinar la búsqueda para obtener resultados</p>
+                <select name="opcion" class="input-48">
+                    <option>Seleccione un Orden de la lista..</option>
+                </select>
+                <input name="nombre" placeholder="Nombre Común" type="text" class="input-48">
+                <select name="opcion" class="input-48">
+                    <option>Seleccione una Familia de la lista..</option>
+                </select>
+                <input name="autor" placeholder="Autor de la descripción" type="text" class="input-48">
+                <input name="género" placeholder="Género" type="text" class="input-48">
+                <input name="año" placeholder="Año de la descripción" type="text" class="input-48">
+                <input name="especie" placeholder="Especie" type="text" class="input-48">
+                
+                
+                <h2><b>Localidad</b></h2>
+                <input name="cantón" placeholder="Cantón" type="text" class="input-48">
+                <input name="provincia" placeholder="Provincia" type="text" class="input-48">
+                <input name="parroquia" placeholder="Parroquia" type="text" class="input-48">
+            </form>
+        </body>
+{% endblock cuerpo %}

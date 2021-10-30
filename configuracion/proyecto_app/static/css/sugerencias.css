@@ -13,74 +13,77 @@
 	text-rendering:optimizeLegibility;
 }
 
-.videos img {
-    max-width:900px;
-	width: 80%;
-    object-fit: contain;
-    position: relative;
-}
-
-.videos {
-    position: relative;
-    overflow: hidden;
-    z-index: -100;
-}
-
-.container {
-	max-width:600px;
-	width:750%;
-	position:absolute;
-	right: 100px;
-	top: 100px;
-}
-/*
-.videos {
-    position: fixed;
-    top: 0;
-    left: 0;
+.contenedor {
+    /*position: relative;*/
     width: 100%;
     height: 100%;
-    overflow: hidden;
-    min-width: 100%;
-    min-height: 100%;
-    z-index: -100;
-    background-color: #465d47;
-    transform:translateX(-50%) trotateY(-50%);
+    min-width: 20%;
+    min-height: 20%;
+	max-width: 100%;
+	max-height: 100%;
+	z-index: -100;
+	overflow: hidden;
 }
 
-.videos img {
-    min-height: 100%;
-    min-width: 100%;
-    object-fit: cover;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%); 
+.contenedor img{
+	min-height: 30%;
+    min-width: 30%;
+	max-width: 100%;
+	max-height: 100%;
+	height: 100vh;
+    position: fixed;
 }
 
-.container {
-	max-width:600px;
-	width:750%;
-	/*position:absolute;
-	right: 100px;
-	top: 100px;
-}
-*/
-
-#contact input[type="nombre"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="celu"], #contact textarea, #contact button[type="submit"] { font:700 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
-
-#contact {
-	background:#ffffff;
-	padding:10px;
-	margin:20px 0;
+form {
+	width: 450px;
+	margin: auto;
+	margin-right: 75px;
+	background-color:transparent ;
+	padding: 10px 20px;
+	box-sizing: border-box;
+	margin-top: 30px;
+	/*position:relative;*/
 }
 
-#contact h1 {
-	color: #F96;
-	display: block;
+.formulario{
+	position: relative;
+}
+
+h1 {
 	font-size: 30px;
-	font-weight: 400;
+	margin: 0;
 	text-align: center;
+	margin-bottom: 20px;
+	font-weight: bold;
+	color:rgb(0, 0, 0);
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+label {
+    width:100%;
+    text-align: left;
+	font-weight: bold;
+	color:rgb(0, 0, 0);
+}
+
+#contact input[type="nombre"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="celu"], #contact textarea, #contact button[type="submit"] { 
+	font:700 12px/16px "Open Sans", Roboto, Roboto, sans-serif; 
+}
+
+#contact input[type="nombre"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="celu"], #contact textarea {
+	width:100%;
+	border:1px solid rgb(51, 255, 0);
+	background:#FFF;
+	margin:0 0 5px;
+	padding:5px;
+	border-radius: 7px;
+}
+
+#contact input[type="nombre"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="celu"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
 }
 
 fieldset {
@@ -91,25 +94,11 @@ fieldset {
 	width: 100%;
 }
 
-#contact input[type="nombre"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="celu"], #contact textarea {
-	width:100%;
-	border:1px solid rgb(51, 255, 0);
-	background:#FFF;
-	margin:0 0 5px;
-	padding:5px;
-}
-
-#contact input[type="nombre"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="celu"]:hover, #contact textarea:hover {
-	-webkit-transition:border-color 0.3s ease-in-out;
-	-moz-transition:border-color 0.3s ease-in-out;
-	transition:border-color 0.3s ease-in-out;
-	border:1px solid #AAA;
-}
-
 #contact textarea {
 	height:100px;
 	max-width:100%;
   	resize:none;
+	border:1px solid rgb(51, 255, 0);
 }
 
 #contact button[type="submit"] {
@@ -119,9 +108,10 @@ fieldset {
 	border:none;
 	background:rgb(251, 255, 0);
 	color:rgb(5, 5, 5);
-	margin:0 0 5px;
+	margin:20px 0 0 0;
 	padding:10px;
 	font-size:15px;
+	border-radius: 7px;
 }
 
 #contact button[type="submit"]:hover {
@@ -148,4 +138,38 @@ fieldset {
 }
 :-ms-input-placeholder {
  color:#888;
+}
+
+#contact label[class="1"]{
+	text-align: left;
+}
+
+
+@media (max-width:768px){
+	form{
+		width: 100%;
+	}
+	label {
+		width:100%;
+		text-align: left;
+		font-weight: bold;
+		color:rgb(255, 255, 255);
+	}
+	h1 {
+		font-size: 30px;
+		margin: 0;
+		text-align: center;
+		margin-bottom: 20px;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+		font-weight: bold;
+		color:rgb(255, 255, 255);
+	}
+	.contenedor img{
+		max-width: 100%;
+		max-height: 100%;
+		height: 100vh;
+		width: 100vh 100vw;
+		position: fixed;
+		overflow: hidden;
+	}
 }

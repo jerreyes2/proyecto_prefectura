@@ -61,6 +61,40 @@ def subfamilia(request):
 def contacto(request):
   return render(request, "contacto.html")
 
+def busqueda_Avanz(request):
+  return render(request, "busqueda_Avanz.html")
+
+def Especies_Agradecimientos(request):
+    return render(request, "Especies_Agradecimientos.html")
+
+def Especies_Busqueda(request):
+    return render(request, "Especies_Busqueda.html")
+
+def Especies_ComoCitar(request):
+    return render(request, "Especies_ComoCitar.html")
+
+def Especies_Galeria(request):
+    return render(request, "Especies_Galeria.html")
+
+def Especies_Introduccion(request):
+    return render(request, "Especies_Introduccion.html")
+
+def Especies_Lista(request):
+    return render(request, "Especies_Lista.html")
+
+def Especies_Noticias(request):
+    return render(request, "Especies_Noticias.html")
+
+def Especies_QuienesSomos(request):
+    return render(request, "Especies_QuienesSomos.html")
+
+def Especies_Ubicacion(request):
+    return render(request, "Especies_Ubicacion.html")
+
+def Especies_UsoDatos(request):
+    return render(request, "Especies_UsoDatos.html")
+
+
 def galeria(request, id_fauna_biomas, tipo):
     especie_bioma = fauna_biomas.objects.filter(id_bioma_id = id_fauna_biomas)
     #fauna_s = fauna.objects.filter(tipo = "ave")    

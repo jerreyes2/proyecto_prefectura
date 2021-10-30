@@ -1,0 +1,175 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especies - Noticias</title>
+
+    <link rel="stylesheet" href="{% static 'css/simple-datatables/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    <link rel="shortcut icon" href="{% static  'assets/images/favicon.svg' %}" type="image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" rel="stylesheet">
+
+    <!-- CSS here -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slicknav.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/themify-icons.css' %}">
+    <link rel="stylesheet" href="{% static 'css/slick.css' %}">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+       
+         <!-- Seccion de panel izquierda start -->
+         {% include "Block_MLateral.html" %}
+
+         <!-- end-->
+
+
+        <div id="main">
+           <!-- Seccion de header  nav   start -->
+            {% include "Block_header.html" %}
+
+           <!-- end-->
+
+            <div class="main-content container-fluid">
+                <div class="page-title">
+                    <div class="row">
+                        <div class="col-12 col-md-12">
+                            <h3><center>NOTICIAS</center></h3>
+                            <p class="text-subtitle text-muted">BIENVENIDOS </p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem cupiditate iusto adipisci veniam sit facilis cum aut. Magnam aut, quis recusandae dolorum minus optio aliquid ipsum dicta rerum, magni maiores!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias magni doloremque delectus consequuntur iusto repudiandae voluptate est vitae rerum unde nemo ipsum ab fugiat quasi qui itaque, veritatis quae ullam!
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum reprehenderit ab hic architecto ipsum nobis autem delectus. Numquam, voluptates delectus ratione debitis harum, itaque aut corrupti odio, perspiciatis sint enim.
+                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Error hic velit architecto delectus doloremque, non vero temporibus perferendis sapiente, consectetur, libero autem iusto harum nostrum animi ducimus ratione repellendus aut.
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla quisquam eaque magnam repudiandae, esse consectetur iure molestias odio, rem facere, neque quibusdam veniam odit vitae culpa voluptas eligendi corrupti. Corporis.
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illum odit odio voluptatum optio deserunt? Aliquam temporibus adipisci commodi voluptate ad laboriosam ducimus quae, iste maxime, asperiores nihil impedit harum aut?
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque laboriosam, omnis quod illo expedita quia ducimus fugit non perspiciatis quisquam incidunt exercitationem! Ullam quod harum similique. Incidunt quaerat obcaecati cupiditate.
+                        </div> 
+                    </div>
+
+                </div>
+
+                <!-- BLOQUE -->
+
+                <section class="section">
+
+                    {% block content %}
+                    
+                    {% endblock %}
+
+                </section>
+
+               
+            
+
+               
+            </div>
+ 
+            <footer>
+                <div class="footer-area fix">
+                    <img class="logo-pre"  src="{% static 'assets/img/gallery/prefectura.png' %}">
+                    <!-- Footer Caption -->
+                    <div class="footer-caption wow fadeInRight" data-wow-delay=".6s">
+                        <div class="footer-menu ">
+                            <div class="single-menu">
+                                <div class="single-footer-caption mb-50">
+                                    <div class="footer-tittle">
+                                        <ul>
+                                            <li><a>Teléfono: 072933114</a></li>
+                                            <li><a>Dirección: Junin s/n y Av. 25 de Junio</a></li>
+                                            <li><a>Gobierno Autónomo Descentralizado Provincial de El Oro</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="copyright pt-40">
+                            <p><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | GADPEO</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="redes_sociales">
+                    <ul> 
+                        <li><a href="https://www.facebook.com/PrefecturaElOro/"  target="_blank" class="fab fa-facebook"></a></li>
+                        <li><a href="https://www.instagram.com/prefecturaeloro/" target="_blank" class="fab fa-instagram"></a></li>
+                        <li><a href="https://twitter.com/PrefecturaElOro"  target="_blank" class="fab fa-twitter"></a></li>
+                    </ul>
+                </div>
+                
+           </footer>
+
+        </div>
+
+
+        
+    </div>
+    <script src=" {% static 'js/feather-icons/feather.min.js' %}"></script>
+    <script src=" {% static 'js/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src=" {% static 'js/app.js' %}"></script>
+    <script src=" {% static 'js/main.js' %}"></script>
+    <script src="{% static 'js/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'js/vendors.js' %}"></script>
+    
+
+    
+   <!-- JS here -->
+	
+		<!-- All JS Custom Plugins Link Here here -->
+        <script src="{% static 'js/vendor/modernizr-3.5.0.min.js'%}"></script>
+		
+		<!-- Jquery, Popper, Bootstrap -->
+		<script src="{% static 'js/vendor/jquery-1.12.4.min.js'%}"></script>
+        <script src="{% static 'js/popper.min.js'%}"></script>
+        <script src="{% static 'js/bootstrap.min.js'%}"></script>
+	    <!-- Jquery Mobile Menu -->
+        <script src="{% static 'js/jquery.slicknav.min.js'%}"></script>
+
+		<!-- Jquery Slick , Owl-Carousel Plugins -->
+        <script src="{% static 'js/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'js/slick.min.js'%}"></script>
+		<!-- One Page, Animated-HeadLin -->
+        <script src="{% static 'js/wow.min.js'%}"></script>
+		<script src="{% static 'js/animated.headline.js'%}"></script>
+        <script src="{% static 'js/jquery.magnific-popup.js'%}"></script>
+
+		<!-- Scrollup, nice-select, sticky -->
+        <script src="{% static 'js/jquery.scrollUp.min.js'%}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js'%}"></script>
+		<script src="{% static 'js/jquery.sticky.js'%}"></script>
+        
+        <!-- contact js -->
+        <script src="{% static 'js/contact.js'%}"></script>
+        <script src="{% static 'js/jquery.form.js'%}"></script>
+        <script src="{% static 'js/jquery.validate.min.js'%}"></script>
+        <script src="{% static 'js/mail-script.js'%}"></script>
+        <script src="{% static 'js/jquery.ajaxchimp.min.js'%}"></script>
+        
+		<!-- Jquery Plugins, main Jquery -->	
+        <script src="{% static 'js/plugins.js'%}"></script>
+        <script src="{% static 'js/main.js'%}"></script>
+        
+    
+  
+</body>
+
+</html>

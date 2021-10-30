@@ -271,7 +271,7 @@ class arboles(models.Model):
 # ----- Erreyes
 
 class areas(models.Model):
-    #id_area = models.IntegerField()
+    id_area = models.IntegerField('id_area',primary_key = True)
     cat_area = models.CharField("cant_area", max_length=100, null=True)
     nom_area = models.CharField("nom_area", max_length=100, null= True)
     fe_creacion = models.DateField( "fe_creacion", null= True)
@@ -285,7 +285,7 @@ class areas(models.Model):
 
 class areas_naturales_corredor_ecolog(models.Model):
     
-    #id_area_corredor = models.IntegerField()
+    id_area_corredor = models.IntegerField('id_area_corredor',primary_key = True)
     asp_min_cap_inst = models.CharField("asp_min_cap_inst", max_length=200, null=True)
     analisis = models.CharField("analisis", max_length=200, null=True)
     observaciones = models.CharField("observaciones", max_length=200, null=True)
@@ -405,13 +405,13 @@ class especies(models.Model):
     nom_ingles = models.CharField('nom_ingles',max_length=100,null=True)
 
     id_estado_conservacion = models.ForeignKey(estado_conservacion,on_delete= models.CASCADE, null=True)
-    nacional = models.IntegerField('nacional')
+    nacional = models.IntegerField('nacional', null=True)
     id_nicho_trofico = models.ForeignKey(nichotrofico, on_delete= models.CASCADE, null=True)
     id_persona =  models.ForeignKey(personas, on_delete= models.CASCADE, null=True)
     id_familia =  models.ForeignKey(familias, on_delete= models.CASCADE, null=True)
     id_orden = models.ForeignKey(ordenes, on_delete= models.CASCADE, null=True)
     id_clase = models.ForeignKey(clases, on_delete= models.CASCADE, null=True)
-    anio_descubrimiento = models.FloatField('')
+    anio_descubrimiento = models.FloatField(null=True)
     id_migracion = models.ForeignKey(migracion_aves, on_delete= models.CASCADE, null=True)
 
     class Meta:

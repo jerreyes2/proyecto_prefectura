@@ -39,6 +39,28 @@ urlpatterns = [
     path("galeriabioma/", views.galeriabioma, name="galeriabioma"),
     
     path("contacto/",views.contacto, name="contacto"),
+
+    path("busqueda_Avanzada/",views.busqueda_Avanz, name="busqueda_Avanz"),
+
+    path("Especies_Agradecimientos/",views.Especies_Agradecimientos, name="Especies_Agradecimientos"),
+
+    path("Especies_Busqueda/",views.Especies_Busqueda, name="Especies_Busqueda"),
+
+    path("Especies_ComoCitar/",views.Especies_ComoCitar, name="Especies_ComoCitar"),
+
+    path("Especies_Galeria/",views.Especies_Galeria, name="Especies_Galeria"),
+
+    path("Especies_Introduccion/",views.Especies_Introduccion, name="Especies_Introduccion"),
+
+    path("Especies_Lista/",views.Especies_Lista, name="Especies_Lista"),
+
+    path("Especies_Noticias/",views.Especies_Noticias, name="Especies_Noticias"),
+
+    path("Especies_QuienesSomos/",views.Especies_QuienesSomos, name="Especies_QuienesSomos"),
+
+    path("Especies_Ubicacion/",views.Especies_Ubicacion, name="Especies_Ubicacion"),
+
+    path("Especies_UsoDatos/",views.Especies_UsoDatos, name="Especies_UsoDatos"),
     
    # path('familia/list/', FamiliaListView.as_view(), name='category_list'),
 ]

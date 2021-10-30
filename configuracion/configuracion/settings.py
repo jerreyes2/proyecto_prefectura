@@ -14,6 +14,9 @@ from pathlib import Path
 import os
 from posixpath import join
 
+from configuracion import coneccion
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -95,20 +98,7 @@ DATABASES = {
 }
 """
 
-
-
-DATABASES = {
-    'default':{
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bd_prefectura',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': ''
-
-    }
-
-}
+DATABASES = coneccion.MYSQL_LOCAL
 
 
 

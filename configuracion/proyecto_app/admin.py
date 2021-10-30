@@ -3,6 +3,7 @@ from django.contrib import admin
 #admin.site.register(familia)
 
 # Register your models here.
+
 class biomaAdmin (admin.ModelAdmin):
     list_display = ("nom_bioma","sigla_bioma","des_altitudinal_bioma","has_altitudinal_bioma","remanencia","ext_bioma")
 
@@ -128,7 +129,7 @@ from .models import abundancias_ecosistemas
 admin.site.register(abundancias_ecosistemas, abundancias_ecosistemasAdmin)
 
 class unidades_hidrograficasAdmin (admin.ModelAdmin):
-    list_display = ("id_uh","nom_uh","cod_uh"," riqueza_uh","abundancia_uh")
+    list_display = ("id_uh","nom_uh","cod_uh","riqueza_uh","abundancia_uh")
   
 from .models import unidades_hidrograficas
 admin.site.register(unidades_hidrograficas, unidades_hidrograficasAdmin)
@@ -164,7 +165,7 @@ class bosques_riosAdmin (admin.ModelAdmin):
 from .models import bosques_rios
 admin.site.register(bosques_rios, bosques_riosAdmin)
 
-class bosques_arbolesAdmin (admin.ModelAdmin):
+class arbolesAdmin (admin.ModelAdmin):
     list_display = ("id_arbol","nom_arbol","esp_arbol","alt_arbol","tip_arbol","id_bosque")
   
 from .models import arboles
@@ -174,73 +175,73 @@ class areasAdmin (admin.ModelAdmin):
     list_display = ("id_area","cat_area","nom_area","fe_creacion","acu_resolucion_area","aut_competente_area",
      "superfici_area","tipo")
   
-from .models areas
+from .models import areas
 admin.site.register(areas, areasAdmin)
 
 class areas_naturales_corredor_ecologAdmin (admin.ModelAdmin):
     list_display = ("id_area_corredor","asp_min_cap_inst","analisis","observaciones")
   
-from .models areas_naturales_corredor_ecolog
+from .models import areas_naturales_corredor_ecolog
 admin.site.register(areas_naturales_corredor_ecolog, areas_naturales_corredor_ecologAdmin)
 
 class cantonesAdmin (admin.ModelAdmin):
     list_display = ("id_canton","nom_canton","id_provincia")
   
-from .models cantones
+from .models import cantones
 admin.site.register(cantones, cantonesAdmin)
 
 class biomas_cantonesAdmin (admin.ModelAdmin):
     list_display = ("id_bioma","id_canton")
   
-from .models biomas_cantones
+from .models import biomas_cantones
 admin.site.register(biomas_cantones, biomas_cantonesAdmin)
 
 class biomas_ecosistemasAdmin (admin.ModelAdmin):
     list_display = ("id_bioma","id_ecosistema")
   
-from .models biomas_ecosistemas
+from .models import biomas_ecosistemas
 admin.site.register(biomas_ecosistemas, biomas_ecosistemasAdmin)
 
 class estado_conservacionAdmin (admin.ModelAdmin):
     list_display = ("id_estado_conservacion","categoria","sigla","descripcion")
   
-from .models estado_conservacion
+from .models import estado_conservacion
 admin.site.register(estado_conservacion, estado_conservacionAdmin)
 
 class clasificacionAdmin (admin.ModelAdmin):
     list_display = ("id_clasificacion","nom_clasificacion","id_estado_conservacion")
   
-from .models clasificacion
+from .models import clasificacion
 admin.site.register(clasificacion, clasificacionAdmin)
 
 class distribucionesAdmin (admin.ModelAdmin):
     list_display = ("id_distribucion","nom_distribucion","sigla_distribucion")
   
-from .models distribuciones
+from .models import distribuciones
 admin.site.register(distribuciones, distribucionesAdmin)
 
 class nichotroficoAdmin (admin.ModelAdmin):
     list_display = ("id_nicho_trofico","nom_nicho","sigla_nicho","descripcion")
   
-from .models nichotrofico
+from .models import nichotrofico
 admin.site.register(nichotrofico, nichotroficoAdmin)
 
 class personasAdmin (admin.ModelAdmin):
     list_display = ("id_persona","nom_persona","ape_pesona","tipo")
   
-from .models personas
+from .models import personas
 admin.site.register(personas, personasAdmin)
 
 class ordenesAdmin (admin.ModelAdmin):
     list_display = ("id_orden","nom_orden","tipo","id_clase")
   
-from .models ordenes
+from .models import ordenes
 admin.site.register(ordenes, ordenesAdmin)
 
 class migracion_avesAdmin (admin.ModelAdmin):
     list_display = ("id_migracion","nom_migracion","sigla")
   
-from .models migracion_aves
+from .models import migracion_aves
 admin.site.register(migracion_aves, migracion_avesAdmin)
 
 class especiesAdmin (admin.ModelAdmin):
@@ -248,25 +249,25 @@ class especiesAdmin (admin.ModelAdmin):
     "nom_ingles","id_estado_conservacion","nacional","id_nicho_trofico","id_persona","id_familia","id_orden",
     "id_clase","anio_descubrimiento","id_migracion")
   
-from .models especies
+from .models import especies
 admin.site.register(especies, especiesAdmin)
 
 class canton_areaAdmin (admin.ModelAdmin):
     list_display = ("id_area","id_canton")
   
-from .models canton_area
+from .models import canton_area
 admin.site.register(canton_area, canton_areaAdmin)
 
 class canton_bosqueAdmin (admin.ModelAdmin):
     list_display = ("id_bosque","id_canton")
   
-from .models canton_bosque
+from .models import canton_bosque
 admin.site.register(canton_bosque, canton_areaAdmin)
 
 class canton_ecosistemaAdmin (admin.ModelAdmin):
     list_display = ("id_canton","id_ecosistema")
   
-from .models canton_ecosistema
+from .models import canton_ecosistema
 admin.site.register(canton_ecosistema, canton_ecosistemaAdmin)
 
 
@@ -339,7 +340,8 @@ admin.site.register(estaciones_muestreos, estaciones_muestreos_Admin)
 
 
 class localidades_muestreo_Admin (admin.ModelAdmin):
-    list_display = ("id_em","num_muestreo","nom_muestreo","des_muestreo","log_muestreo","lat_muestreo", "alt_muestreo","tipo_animal","id_em")
+    list_display = ("id_em","num_muestreo","nom_muestreo","des_muestreo","log_muestreo",
+    "lat_muestreo", "alt_muestreo","tipo_animal","id_em")
   
 from .models import localidades_muestreo
 admin.site.register(estaciones_muestreos, estaciones_muestreos_Admin)
@@ -403,7 +405,8 @@ admin.site.register(especies_tiposvegetacion, especies_tiposvegetacion_Admin)
 
 
 class flora_Admin (admin.ModelAdmin):
-    list_display = ("id_flora","nom_flora","tipo","etimologia","diagnosis","comentarios_taxonomicos","distribucion_composicion","autor")
+    list_display = ("id_flora","nom_flora","tipo","etimologia","diagnosis",
+    "comentarios_taxonomicos","distribucion_composicion","autor")
   
 from .models import flora
 admin.site.register(flora, flora_Admin)
@@ -443,7 +446,8 @@ admin.site.register(flora_locaciones, flora_locaciones_Admin)
 
 
 class genero_Admin (admin.ModelAdmin):
-    list_display = ("id_genero","nom_genero", "etimologia","diagnosis", "comentarios_taxonomicos","distribucion_composicion")
+    list_display = ("id_genero","nom_genero", "etimologia","diagnosis",
+    "comentarios_taxonomicos","distribucion_composicion")
   
 from .models import genero
 admin.site.register(genero, genero_Admin)
@@ -626,7 +630,8 @@ from .models import estado_conservacion_cuerpos_agu
 admin.site.register(estado_conservacion_cuerpos_agu, estado_conservacion_cuerpos_aguAdmin)
 
 class estudios_pericosAdmin (admin.ModelAdmin):
-    list_display = ("id_estudioperico","id_provincia","localidad_especie","numero_pericos_especie","grupo_especie","anio_estudio")
+    list_display = ("id_estudioperico","id_provincia","localidad_especie",
+    "numero_pericos_especie","grupo_especie","anio_estudio")
   
 from .models import estudios_pericos
 admin.site.register(estudios_pericos, estudios_pericosAdmin)
@@ -698,7 +703,8 @@ from .models import relieves
 admin.site.register(relieves, relievesAdmin)
 
 class servicios_ecosistemicosAdmin (admin.ModelAdmin):
-    list_display = ("id_servicioecosistemico","nom_servicioecosistemico","hec_servicioecosistemico","por_servicioecosistemico")
+    list_display = ("id_servicioecosistemico","nom_servicioecosistemico",
+    "hec_servicioecosistemico","por_servicioecosistemico")
   
 from .models import servicios_ecosistemicos
 admin.site.register(servicios_ecosistemicos, servicios_ecosistemicosAdmin)
@@ -728,7 +734,11 @@ from .models import subtribu
 admin.site.register(subtribu, subtribuAdmin)
 
 class telemetria_pericosAdmin (admin.ModelAdmin):
-    list_display = ("id_telemetria","num_pericos","cant_telemetria","estado_grupo_perico","distancia_vuelo_max","distancia_vuelo_promedio","tiempo_estancia_bosques_max","tiempo_estancia_bosques_pro","tiempo_estancia_pastos_max","tiempo_estancia_pastos_pro","habitat_bosques","habitat_pasto_arbolado","habitat_area_vida_semanal","habitat_area_vida_diaria")
+    list_display = ("id_telemetria","num_pericos","cant_telemetria",
+    "estado_grupo_perico","distancia_vuelo_max","distancia_vuelo_promedio",
+    "tiempo_estancia_bosques_max","tiempo_estancia_bosques_pro","tiempo_estancia_pastos_max",
+    "tiempo_estancia_pastos_pro","habitat_bosques","habitat_pasto_arbolado",
+    "habitat_area_vida_semanal","habitat_area_vida_diaria")
   
 from .models import telemetria_pericos
 admin.site.register(telemetria_pericos, telemetria_pericosAdmin)
@@ -740,7 +750,8 @@ from .models import unidades_fisiotopicos
 admin.site.register(unidades_fisiotopicos, unidades_fisiotopicosAdmin)
 
 class usersAdmin (admin.ModelAdmin):
-    list_display = ("id_user","email_user","image_user","password_user","estado_user","creat_at_user","modif_at_user")
+    list_display = ("id_user","email_user","image_user","password_user",
+    "estado_user","creat_at_user","modif_at_user")
   
 from .models import users
 admin.site.register(users, usersAdmin)

@@ -1,0 +1,91 @@
+{% load static %}
+<div id="sidebar" class='active'>
+    <div class="sidebar-wrapper active">
+        <div class="sidebar-header">
+            <img src="{% static  'assets/images/logo.svg' %}" alt="" srcset="">
+        </div>
+        <div class="sidebar-menu">
+            <ul class="menu">
+
+ 
+
+
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Busqueda' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Busqueda avanzada</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Introduccion' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Introducción</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Galeria' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Galería</span>
+                    </a>
+                </li>
+ 
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Noticias' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Noticias</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Ubicacion' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Ubicación</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Lista' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Lista de especies</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_ComoCitar' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>¿Cómo citar?</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_UsoDatos' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Uso de datos</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_Agradecimientos' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>Agradecimientos</span>
+                    </a>
+                </li>
+
+                <li class="sidebar-item  ">
+                    <a href="{% url 'Especies_QuienesSomos' %}" class='sidebar-link'>
+                        <i data-feather="home" width="20"></i>
+                        <span>¿Quiénes somos?</span>
+                    </a>
+                </li>
+
+
+
+
+            </ul>
+        </div>
+        <button class="sidebar-toggler btn x"><i data-feather="x"></i></button>
+    </div>
+</div>
