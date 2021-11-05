@@ -61,8 +61,8 @@ def subfamilia(request):
 def contacto(request):
   return render(request, "contacto.html")
 
-def busqueda_Avanz(request):
-  return render(request, "busqueda_Avanz.html")
+def busquedaavanzada(request):
+  return render(request, "busquedaavanzada.html")
 
 def Especies_Agradecimientos(request):
     return render(request, "Especies_Agradecimientos.html")

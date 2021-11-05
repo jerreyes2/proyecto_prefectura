@@ -1,0 +1,373 @@
+{% extends 'inicio.html' %}
+    {% block titulo %} Búsqueda Avanzada {% endblock titulo %}
+    {% block cuerpo %}
+    {% load static %}
+    
+    <!DOCTYPE html>
+    <html lang="en" style="font-weight: bold;">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+    <link rel="stylesheet" href="{% static 'css/themify.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/Article-List.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/busquedaavanzada.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/Carousel-Hero.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/Data-Table-1.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/Data-Table.css' %}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/Newsletter-Subscription-Form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/BusquedaGeneral_css/themify-icons.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css' %}">
+</head>
+
+    <body>
+        <nav class="navbar navbar-light navbar-expand-md sticky-top bg-light">
+            <div class="logo">
+                <a href="{% url 'inicio' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+            </div> 
+                <div class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'inicio'%}">Bio-Oro</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'sugerencias'%}">Sugerencias</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="{% url 'contacto'%}">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div>
+    
+    <div>
+        <div class="carousel slide" data-bs-ride="carousel" id="carousel-1">
+            <div class="carousel-inner pulse animated">
+                <div class="carousel-item active">
+                    <div class="bg-light border rounded border-light hero-nature carousel-hero jumbotron py-5 px-4" style="height: 267px;">
+                        <h1 class="hero-title">Búsqueda Avanzada<br></h1>
+                        <p class="hero-subtitle">Puede realizar la búsqueda de las distintas especies existentes en la Provincia de El ORO almacenadas en nuestra base de datos.<br></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-light border rounded border-light hero-photography carousel-hero jumbotron py-5 px-4">
+                        <h1 class="hero-title">Búsqueda Avanzada<br></h1>
+                        <p class="hero-subtitle">Puede realizar la búsqueda de las distintas especies existentes en la Provincia de El ORO almacenadas en nuestra base de datos.<br></p>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="bg-light border rounded border-light hero-technology carousel-hero jumbotron py-5 px-4">
+                        <h1 class="hero-title">Búsqueda Avanzada<br></h1>
+                        <p class="hero-subtitle">Puede realizar la búsqueda de las distintas especies existentes en la Provincia de El ORO almacenadas en nuestra base de datos.<br></p>
+                        <p></p>
+                    </div>
+                </div>
+            </div>
+            <div><a class="carousel-control-prev" href="#carousel-1" role="button" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span><span class="visually-hidden">Previous</span></a><a class="carousel-control-next" href="#carousel-1" role="button" data-bs-slide="next"><span class="carousel-control-next-icon"></span><span class="visually-hidden">Next</span></a></div>
+            <ol class="carousel-indicators">
+                <li data-bs-target="#carousel-1" data-bs-slide-to="0" class="active"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="1"></li>
+                <li data-bs-target="#carousel-1" data-bs-slide-to="2"></li>
+            </ol>
+        </div>
+    </div>
+    <div>
+        
+        <section id="seccion">
+            <div class="card-group" data-aos="fade" id="imagenes">
+                <div class="card"><img class="card-img-top w-100 d-block" src="{% static 'assets/img/BusquedaGeneral/Iconos/hojas-de-una-planta.png' %}">
+                    <div class="card-body">
+                        <h4 class="text-center card-title">51236</h4>
+                        <p class="text-center card-text">Especímenes</p>
+                    </div>
+                </div>
+                <div class="card"><img class="card-img-top w-100 d-block" src="{% static 'assets/img/BusquedaGeneral/Iconos/animal.png' %}">
+                    <div class="card-body">
+                        <h4 class="text-center card-title">3658</h4>
+                        <p class="text-center card-text">Especies</p>
+                    </div>
+                </div>
+                <div class="card"><img class="card-img-top w-100 d-block" src="{% static 'assets/img/BusquedaGeneral/Iconos/marcador-de-posicion.png' %}">
+                    <div class="card-body">
+                        <h4 class="text-center card-title">241</h4>
+                        <p class="text-center card-text">Localidades</p>
+                    </div>
+                </div>
+                <div class="card"><img class="card-img-top w-100 d-block" src="{% static 'assets/img/BusquedaGeneral/Iconos/grupo-de-personas.png' %}">
+                    <div class="card-body">
+                        <h4 class="text-center card-title">7456</h4>
+                        <p class="text-center card-text">Autores</p>
+                    </div>
+                </div>
+                <div class="card"><img class="card-img-top w-100 d-block" src="{% static 'assets/img/BusquedaGeneral/Iconos/genoma.png' %}">
+                    <div class="card-body">
+                        <h4 class="text-center card-title">5598</h4>
+                        <p class="text-center card-text">Genomas</p>
+                    </div>
+                </div>
+            </div>
+            <div></div>
+        </section>
+        <section id="seccion-tabla">
+            <p data-aos="fade" style="font-weight: bold;">Busqueda de Especies</p>
+            <p data-aos="fade">Puede combinar la búsqueda para obtener resultados</p>
+            
+            <div class="row"><div class="col-md-6">
+   <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione un orden de la lista.</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione una familia de la lista.</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione una subfamilia de la lista.</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <input class="form-control mb-3" type="text" placeholder="Nombre común" aria-label="default input example">
+    <input class="form-control mb-3" type="text" placeholder="Autor de la descripción" aria-label="default input example">
+    
+</div><div class="col-md-6">
+<select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione Género.</option>
+      <option value="1">Mamífero</option>
+      <option value="2">Ave</option>
+      <option value="3">Reptil</option>
+      <option value="3">Anfibio</option>
+      <option value="3">Pez</option>
+      <option value="3">Macrovertebrado</option>
+    </select>
+<input class="form-control mb-3" type="text" placeholder="Especie" aria-label="default input example">
+<input class="form-control mb-3" type="text" placeholder="Año de descubrimiento" aria-label="default input example">
+<input class="form-control mb-3" type="text" placeholder="Nombre científico" aria-label="default input example">
+<input class="form-control mb-3" type="text" placeholder="Clase" aria-label="default input example">
+</div></div>
+            <p data-aos="fade" style="font-weight: bold;">Localidad</p>
+            <div class="row"><div class="col-md-6">
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Cantón.</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    <input class="form-control mb-3" type="text" placeholder="Parroquia" aria-label="default input example">
+    
+</div><div class="col-md-6">
+    <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione un Provincia.</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      <option value="3">Three</option>
+    </select>
+    
+
+</div></div>
+            <p data-aos="fade" style="font-weight: bold;">Estado de conservación</p>
+            <div class="row"><div class="col-md-6">
+   <select class="form-select mb-3" aria-label="Default select example">
+      <option selected>Seleccione Lista Roja IUCN.</option>
+      <option value="1">Extinto</option>
+      <option value="1">Extinto en estado silvestre</option>
+      <option value="3">En peligro crítico</option>
+      <option value="2">En peligro</option>
+      <option value="4">Vulnerable</option>
+      <option value="5">Casi amenazado</option>
+      <option value="6">Preocupación menor</option>
+      <option value="3">Datos Insuficientes</option>
+      <option value="3">No Evaluado</option>
+    </select>
+
+    </div><div class="col-md-6">
+        <select class="form-select mb-3" aria-label="Default select example">
+            <option selected>Seleccione Lista Roja AWE.</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            </select>
+          
+
+</div>
+            <div class="container">
+                <div class="row"><div class="col-md-6">
+
+</div></div>
+            </div>
+            <div class="container">
+                <div class="row"><div class="col-md-0 p-0 ps-0">
+   <button type="button" class="btn btn-success"><img src="{% static 'assets/img/BusquedaGeneral/comunes/lupa-blanco.png' %}" width="50px" style="width: 25px; height: 25px;" > Buscar</button>
+</div><div class="col-md-0 p-0 ps-0">
+    <button type="button" class="btn btn-primary">Limpiar Formulario</button>
+</div></div>
+            </div>
+            <h5>Infomación de búsqueda</h5> <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<div class="py-3">
+  <p>Escriba en el campo de entrada para buscar especies en la tabla:</p>  
+  <input class="form-control" id="myInput" type="text" placeholder="Filtrar..">
+</div>
+<div class="table-responsive col-lg-12">
+    <table id="example" class="table table-striped table-bordered" >
+        <thead>
+            <tr>
+                <th>Nombre Científico</th>
+                <th>Nombre de especie</th>
+                <th>Tipo</th>
+                <th>Rango Altitudinal</th>
+                <th>Ubicación</th>
+                <th>Descripción</th>
+                <th>Nombre en Ingles</th>
+                <th>Estado de conservación</th>
+                <th>Nicho Trófico</th>
+                <th>Familia</th>
+                <th>Sub-familia</th>
+                <th>Orden</th>
+                <th>Clase</th>
+                <th>Año descubrimiento</th>
+                <th>Migración</th>
+            </tr>
+        </thead>
+        <tbody id="myTable" style="max-height:100px; overflow:auto; ">
+            <tr>
+                <td>Tiger Nixon</td>
+                <td>System Architect</td>
+                <td>Edinburgh</td>
+                <td>61</td>
+                <td>2011/04/25</td>
+                <td>$320,800</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                
+            </tr>
+            <tr>
+                <td>Garrett Winters</td>
+                <td>Accountant</td>
+                <td>Tokyo</td>
+                <td>63</td>
+                <td>2011/07/25</td>
+                <td>$170,750</td>
+                <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+            </tr>
+            <tr>
+                <td>Ashton Cox</td>
+                <td>Junior Technical Author</td>
+                <td>San Francisco</td>
+                <td>66</td>
+                <td>2009/01/12</td>
+                <td>$86,000</td>
+                <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+                 <td>System Architect</td>
+            </tr>
+            
+
+        </tbody>
+    </table>
+    
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+</div>
+        </section>
+<section class="cta-download bg-3 pt-5 mb-5">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-5 text-center">
+                
+				<div class="image-block"><img class="phone-thumb img-fluid" src="{% static 'assets/img/BusquedaGeneral/Telefono/app.png' %}" alt=""></div>
+			</div>
+			<div class="col-lg-7 columnainfoapp">
+				<div class="content-block">
+					<!-- Title -->
+					<h2>Descargar la App Ahora .</h2>
+					<!-- Desctcription -->
+					<p>Puede encontrar en la app de bioro las distintas especies de la provincia de El Oro Distribuidas en un mapa de manera interactivo, la descarga es gratuita.</p>
+					<!-- App Badge -->
+					<div class="app-badge">
+						<ul class="list-inline">
+							<li class="list-inline-item">
+								<a href="#" class="btn btn-download"><i class="ti-android"></i>
+									<div>Obtener en la<span>GOOGLE PLAY</span></div>
+								</a>
+							</li>
+							<li class="list-inline-item">
+								<a href="#" class="btn btn-download"><i class="ti-apple"></i>
+									<div>Obtener en la<span>Apple store</span></div>
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+        <div class="container">
+            <div class="intro" style="padding: 60px;">
+                <h6 class="text-center">Con el Apoyo de:</h6><img class="entidades" src="{% static 'assets/img/BusquedaGeneral/comunes/entidades.png' %}" style="text-align: center;">
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/js-sugerencia/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/bs-init.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+    <script src="{% static 'js/js-sugerencia/app.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/father-icons/feather.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/father-icons/feather.min.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/feather-icons.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/main.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/pages/dashboard.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/pages/form-editor.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/pages/ui-apexchart.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/pages/ui-chartjs.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/pages/widgets.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/simple-datatables/simple-datatables.js' %}"></script>
+    <script src="{% static 'js/js-sugerencia/vendors.js' %}"></script>
+</body>
+
+</html>
+{% endblock cuerpo %}

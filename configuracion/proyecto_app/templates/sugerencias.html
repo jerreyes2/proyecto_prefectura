@@ -1,59 +1,114 @@
 {% extends 'inicio.html' %}
-    {% block titulo %} Sugerencias {% endblock titulo %}
-    {% block cuerpo %}
-    {% load static %}
-        <header>
-            <!-- Header Start -->
-            <div class="header-area header-sticky">
-                    <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
-                        <!-- Logo -->
-                        <div class="logo">
-                            <a href="{% url 'inicio' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+{% block titulo %} Sugerencias {% endblock titulo %}
+{% block cuerpo %}
+{% load static %}
+
+
+    <head>
+        <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora&amp;display=swap">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap">
+        <link rel="stylesheet" href="{% static 'css/themify.css' %}">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Sugerencias_css/Article-Clean.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Sugerencias_css/Highlight-Blue.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Sugerencias_css/Profile-with-data-and-skills.css' %}">
+        <link rel="stylesheet" href="{% static 'css/Sugerencias_css/sugerencias.css' %}">
+        
+        <div class="header-area header-sticky">
+            <div class="header-wrapper d-flex flex-wrap align-items-center justify-content-between">
+                <!-- Logo -->
+                <div class="logo">
+                    <a href="{% url 'inicio' %}"><img src="{% static 'assets/img/logo/logo.png' %}" alt=""></a>
+                </div>
+                <!-- Main-menu -->
+                <div style = "width: 60%;" class="main-menu d-none d-lg-block" >
+                    <nav>
+                        <ul id="navigation">                                                                                                                               
+                            <li><a style = "color: #000;" href="{% url 'inicio'%}">Bio-Oro</a></li>
+                            <li><a style = "color: #000;" href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
+                           
+                        </ul>
+                    </nav>
+                </div>          
+                
+                <!-- Mobile Menu -->
+                <div class="col-12">
+                    <div class="mobile_menu d-block d-lg-none"></div>
+                </div>
+            </div>
+        </div>
+    </head>
+
+    <body>
+        <div class="row mt-auto" id="fila-general">
+            <div class="col-md-6">
+                <section data-aos="fade" class="highlight-blue" style="text-align: justify;">
+                    <div class="container">
+                        <div id="seccion-sugerencia" class="intro">
+                            <h2 class="text-center" style="font-size: 41px;text-align: center;">N u e v a s <br>E s p e c i e s</h2>
+                            <p class="text-center" style="text-align: justify;">Tenemos la suerte de que la provincia de EL ORO<br>posea un increíble despliegue de maravillosas especies. <br>Si es científico que lleva buscando especies nuevas por toda la provincia,<br>&nbsp;y ha encontrado una, envíenos la siguiente información comentando de la nueva especie.<br></p>
                         </div>
-                        <!-- Main-menu -->
-                        <div style = "width: 60%;" class="main-menu d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">                                                                                                                               
-                                    <li><a style = "color: #000;" href="{% url 'inicio'%}">Bio-Oro</a></li>
-                                    <li><a style = "color: #000;" href="{% url 'infoweb'%}">Acerca de Bio-Oro</a></li>
-                                </ul>
-                            </nav>
-                        </div>          
-                        
-                        <!-- Mobile Menu -->
-                        <div class="col-12">
-                            <div class="mobile_menu d-block d-lg-none"></div>
+                        <div class="buttons"></div>
+                    </div>
+                </section>
+            </div>
+            <div class="col-md-6" id="columna-form">
+                <div class="container" id="columna-form">
+                    <div class="row" id="fila-form">
+                        <div class="col-md-12" id="fila">
+                            <form class="p-2">
+                                <div class="mb-3">
+                                    <label for="exampleInputEmail1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ingrese aquí su correo.">
+                                    <div id="emailHelp" class="form-text">Se enviará respuesta a su correo electrónico..</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Asunto</label>
+                                    <input type="text" class="form-control" id="inputAddress" placeholder="Indique lo que quiere comunicar.">
+                                </div>   
+                                <div class="mb-3">
+                                    <label class="form-label">Celular</label>
+                                    <input type="tel" id="typePhone" class="form-control"  placeholder="+593-000000" />
+                                    <div id="emailHelp" class="form-text">Nos pondremos en contacto con usted..</div>
+                                </div>
+                                <div class="mb-3">  
+                                    <div class="form-floating">
+                                        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                        <label for="floatingTextarea2">Comentario</label>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">Fotos de nueva especie.</label>
+                                    <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
                         </div>
                     </div>
+                </div>
             </div>
-        <!-- Header End -->
-        </header>
-
-        <div class="banner-inner" style="border-bottom: 5px solid #ffff00;"></div>
-            
-        
-        <div class="principal">
-            <link rel="stylesheet" href="{% static 'css/sugerencias.css' %}">
-            <div class="contenedor">
-                <img src="{% static 'assets/img/gallery/fondo_nuevas_especies.png' %}"></img>        
-            </div>
-            <div class="formulario">    
-                <form id="contact" action="" method="post" enctype="multipart/form-data" >{% csrf_token %}
-                    <h1>CONTÁCTANOS</h1>
-                    <label for="nombre">Nombres</label>
-                    <input name="nombre" type="nombre" tabindex="1" required>
-                    <label for="email">Email</label>
-                    <input name="email" placeholder="correo@example.com" type="email" tabindex="2" required>
-                    <label for="asunto">Asunto</label>
-                    <input name="asunto" type="tel" tabindex="3" required>
-                    <label for="celular">Celular</label>
-                    <input name="celular" type="celu"  tabindex="4" required>
-                    <label for="comentario">Comentario</label>
-                    <textarea name="comentario"  tabindex="5" required></textarea>
-                    <label for="exampleFormControlFile1">Archivo adjunto</label>
-                    <input name="file "type="file" class="form-control-file" id="file">
-                    <button  name="submit" type="submit" id="contact-submit" data-submit="...Sending">Enviar</button>
-                </form> 
-            </div>
-        </div>    
-    {% endblock cuerpo %}
+        </div>
+        <script src="{% static 'js/js-sugerencia/jquery.min.js' %}"></script>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/bs-init.js' %}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap.min.js"></script>
+        <script src="{% static 'js/js-sugerencia/app.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/father-icons/feather.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/father-icons/feather.min.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/feather-icons.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/main.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/pages/dashboard.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/pages/form-editor.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/pages/ui-apexchart.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/pages/ui-chartjs.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/pages/widgets.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/simple-datatables/simple-datatables.js' %}"></script>
+        <script src="{% static 'js/js-sugerencia/vendors.js' %}"></script>
+    </body>
+    
+{% endblock cuerpo %}

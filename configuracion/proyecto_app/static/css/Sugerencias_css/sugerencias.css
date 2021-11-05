@@ -1,0 +1,53 @@
+@media (min-width: 300px) {
+  #seccion-sugerencia {
+    padding-top: 15px;
+  }
+}
+
+@media (min-width: 768px) {
+  #seccion-sugerencia {
+    padding: 200px 20px 220px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  #seccion-sugerencia {
+    padding: 200px 20px 220px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+}
+
+#seccion-sugerencia img {
+  padding: 38px 38px 0px;
+}
+
+.titulo {
+  margin-top: 85px;
+}
+
+#logo {
+  max-height: 42px;
+  margin-right: 18px;
+  margin-top: -3px;
+  display: inline-block;
+}
+
+#combo {
+  background-color: var(--bs-light);
+  color: black;
+  padding: 10px;
+  margin-top: 15px;
+}
+
+#textbox {
+  margin-top: 15px;
+}
+
+
+/*
+.columna-form{
+  position: relative;
+}

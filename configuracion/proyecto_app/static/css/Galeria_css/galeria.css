@@ -1,0 +1,22 @@
+@media (min-width: 300px) {
+  .seccion-galeria {
+    padding: 40px 12px 40px 12px;
+  }
+}
+
+@media (min-width: 768px) {
+  .seccion-galeria {
+    padding: 40px 150px 40px 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .seccion-galeria {
+    padding: 40px 150px 40px 150px;
+  }
+}
+
+div.jumbotron.hero-nature fondo {
+  background-image: url('../../../assets/img/Galeria/architects-and-worker.jpg');
+}
+

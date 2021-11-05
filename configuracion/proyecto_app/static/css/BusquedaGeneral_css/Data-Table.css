@@ -1,0 +1,18 @@
+#example {
+  margin-bottom: 0;
+}
+
+#tabla {
+  padding: 0px 10px 0px 10px;
+}
+
+@media (min-width: 576px) {
+  #imagenes {
+    padding: 25px;
+  }
+}
+
+#imagenes {
+  padding: 15px;
+}
+

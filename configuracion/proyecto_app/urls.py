@@ -40,7 +40,7 @@ urlpatterns = [
     
     path("contacto/",views.contacto, name="contacto"),
 
-    path("busqueda_Avanzada/",views.busqueda_Avanz, name="busqueda_Avanz"),
+    path("busquedaavanzada/",views.busquedaavanzada, name="busquedaavanzada"),
 
     path("Especies_Agradecimientos/",views.Especies_Agradecimientos, name="Especies_Agradecimientos"),
 
